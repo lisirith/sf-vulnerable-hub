@@ -1,62 +1,683 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SF Vulnerable Community Hub</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 20px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      background: #f7f7f7;
-    }
-    h1, h2 {
-      color: #222;
-    }
-    .section {
-      background: white;
-      padding: 15px 20px;
-      margin: 10px 0;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Francisco Homeless Assistance Platform</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+        /* 沿用你喜欢的旧版全局渐变背景，布局结构不动 */
+        body {
+            background: linear-gradient(135deg, #2c2420, #463830, #5e4b3f);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        /* 开场封面页（保留原版渐变审美） */
+        .cover-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(145deg, #5a4638, #79604e, #947962);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.9s ease, visibility 0.9s ease;
+        }
+        .cover-page.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .cover-wrap {
+            border: 2px solid #e9ddcf;
+            padding: 60px 80px;
+            position: relative;
+            background-color: rgba(255,255,255,0.08);
+        }
+        .cover-wrap::before, .cover-wrap::after,
+        .cover-wrap span:nth-child(1), .cover-wrap span:nth-child(2) {
+            content: "";
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            border: 2px solid #f0e6db;
+        }
+        .cover-wrap::before {top:-12px;left:-12px;border-right:none;border-bottom:none;}
+        .cover-wrap::after {bottom:-12px;right:-12px;border-left:none;border-top:none;}
+        .cover-wrap span:nth-child(1) {top:-12px;right:-12px;border-left:none;border-bottom:none;}
+        .cover-wrap span:nth-child(2) {bottom:-12px;left:-12px;border-right:none;border-top:none;}
+
+        .cover-title {
+            color: #fffdfa;
+            font-size: 40px;
+            margin-bottom: 16px;
+            text-align: center;
+            letter-spacing: 2px;
+            animation: fadeUp 1s ease forwards;
+            font-weight: 500;
+        }
+        .cover-subtitle {
+            color: #f3e9de;
+            font-size: 17px;
+            margin-bottom: 42px;
+            text-align:center;
+            animation: fadeUp 1s ease 0.2s forwards;
+            opacity: 0;
+            line-height:1.6;
+        }
+        .enter-btn {
+            padding: 15px 52px;
+            background-color: #fffdfa;
+            color: #705540;
+            border: none;
+            border-radius: 40px;
+            font-size: 17px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeUp 1s ease 0.4s forwards;
+            opacity: 0;
+            border:1px solid #d4c8b8;
+        }
+        .enter-btn:hover {
+            background-color: #f8f2eb;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+        }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========== 完全锁定稳定布局，只修改卡片配色 ========== */
+        .container {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+            opacity: 0;
+            transition: opacity 0.7s ease 0.3s;
+        }
+        .container.show {
+            opacity: 1;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        header h1 {
+            color: #f1e9e2;
+            margin-bottom: 8px;
+        }
+        header p {
+            color: #d1c7bf;
+        }
+        .tab-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        .tab-buttons button {
+            padding: 12px 28px;
+            border: none;
+            background: #6d584a;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .tab-buttons button.active {
+            background: #947962;
+        }
+        #locate-btn {
+            background: #3a6b4c !important;
+        }
+        .row {
+            display: flex;
+            gap: 25px;
+        }
+        #map {
+            width: 65%;
+            height: 650px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+        }
+        #sidebar {
+            width: 35%;
+            height: 650px;
+            overflow-y: auto;
+            background: rgba(255,255,255,0.92);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+        }
+        #sidebar h2 {
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e2dad3;
+            margin-bottom: 20px;
+            color: #3d3028;
+        }
+        /* 核心防错乱样式保留，一字都没改动 */
+        #list-wrapper {
+            list-style: none;
+        }
+        #list-wrapper li {
+            padding: 20px 0;
+            border-bottom: 1px dashed #d4c8b8;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        #list-wrapper li:hover {
+            background: #f3ede8;
+            padding-left: 10px;
+        }
+        .place-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d231d;
+            margin-bottom: 10px;
+            white-space: normal;
+            word-break: normal;
+            overflow-wrap: normal;
+        }
+        .place-address {
+            font-size: 15px;
+            color: #443830;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .place-desc {
+            font-size: 14px;
+            color: #665549;
+            line-height: 1.5;
+        }
+
+        /* AI聊天弹窗沿用旧版复古配色 */
+        .ai-toggle-btn {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background-color: #947962;
+            color: white;
+            border: 1px solid #d4c8b8;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+            z-index: 9999;
+            transition: all 0.25s ease;
+        }
+        .ai-toggle-btn:hover {
+            transform: scale(1.06);
+            background-color:#a88c70;
+        }
+        .ai-chat-box {
+            position: fixed;
+            bottom: 98px;
+            right: 26px;
+            width: 390px;
+            height: 530px;
+            border-radius: 14px;
+            box-shadow: 0 6px 26px rgba(0,0,0,0.4);
+            overflow: hidden;
+            z-index: 9998;
+            background:#fffdfa;
+            display:none;
+            flex-direction:column;
+            transition: opacity 0.35s ease;
+            border:1px solid #e0d6cc;
+        }
+        .ai-chat-box.open {
+            display:flex;
+            opacity:1;
+        }
+        .ai-header {
+            background:#947962;
+            color:#fffdfa;
+            padding:13px 18px;
+            font-weight:500;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size:16px;
+        }
+        .ai-close {
+            background:transparent;
+            border:none;
+            color:#fffdfa;
+            font-size:22px;
+            cursor:pointer;
+            opacity:0.85;
+        }
+        .ai-close:hover {opacity:1;}
+        .ai-messages {
+            flex:1;
+            padding:14px;
+            overflow-y:auto;
+            background:#fdfaf5;
+        }
+        .msg-bot {
+            background:#ebe3db;
+            padding:9px 14px;
+            border-radius:10px;
+            margin:7px 0;
+            max-width:90%;
+            white-space: pre-line;
+            color:#4a382a;
+            font-size:14px;
+        }
+        .msg-user {
+            background:#947962;
+            color:#fffdfa;
+            padding:9px 14px;
+            border-radius:10px;
+            margin:7px 0 7px auto;
+            max-width:90%;
+            font-size:14px;
+        }
+        .ai-input-area {
+            display:flex;
+            gap:8px;
+            padding:12px;
+            border-top:1px dashed #e2d8cf;
+            background:#fffdfa;
+        }
+        #userInput {
+            flex:1;
+            padding:9px 14px;
+            border:1px solid #d4c8b8;
+            border-radius:8px;
+            outline:none;
+            background:#fdfaf5;
+            color:#4a382a;
+        }
+        #sendBtn {
+            padding:9px 18px;
+            border:none;
+            background:#947962;
+            color:#fffdfa;
+            border-radius:8px;
+            cursor:pointer;
+            transition:background 0.2s;
+        }
+        #sendBtn:hover {background:#a88c70;}
+
+        /* 移动端适配完全保留 */
+        @media(max-width:900px){
+            .row {
+                flex-direction: column;
+            }
+            #map, #sidebar {
+                width: 100%;
+                height: 450px;
+            }
+            .cover-title {
+                font-size: 26px;
+            }
+            .cover-wrap {
+                padding: 40px 30px;
+            }
+            .ai-chat-box {
+                width: 92%;
+                height: 420px;
+                right: 4%;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <h1>SF Vulnerable Community Hub</h1>
-  <p>Free resources for people in need in San Francisco.</p >
 
-  <div class="section">
-    <h2>Free Food</h2>
-    <p>Places to get free meals in SF.</p >
-    <ul>
-      <li>St. Anthony's Dining Room</li>
-      <li>GLIDE Memorial Church</li>
-    </ul>
-  </div>
+    <!-- 开场封面页（完全保留） -->
+    <div class="cover-page" id="coverPage">
+        <div class="cover-wrap">
+            <span></span>
+            <span></span>
+            <h1 class="cover-title">San Francisco Homeless Assistance Platform</h1>
+            <p class="cover-subtitle">Locate shelters & free meal sites, generate walking directions<br>Supporting people in need with reliable local resources</p>
+            <button class="enter-btn" id="enterSiteBtn">Enter Platform</button>
+        </div>
+    </div>
 
-  <div class="section">
-    <h2>Shelters</h2>
-    <p>Emergency overnight shelters.</p >
-    <ul>
-      <li>SF Homeless Connect</li>
-      <li>Local shelters list coming soon.</li>
-    </ul>
-  </div>
+    <!-- 复原原版正常布局的主页面 -->
+    <div class="container" id="mainBox">
+        <header>
+            <h1>San Francisco Emergency Resource Navigation System</h1>
+            <p>Non-Profit Public Service Project · Live Location Directory</p>
+        </header>
 
-  <div class="section">
-    <h2>About This Project</h2>
-    <p>This is a student-built website to make free resources easier to find in San Francisco.</p >
-  </div>
+        <div class="tab-buttons">
+            <button class="active" data-type="shelter">Emergency Adult Shelters</button>
+            <button data-type="food">Free Meal Distribution Sites</button>
+            <button id="locate-btn">📍 Find Nearest Resource</button>
+        </div>
+
+        <div class="row">
+            <div id="map"></div>
+            <div id="sidebar">
+                <h2 id="sidebar-title">Available Emergency Adult Shelters</h2>
+                <ul id="list-wrapper"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI聊天弹窗（保留） -->
+    <button class="ai-toggle-btn" id="aiToggleBtn">💬</button>
+    <div class="ai-chat-box" id="aiChatBox">
+        <div class="ai-header">
+            Assistance Helpdesk
+            <button class="ai-close" id="aiCloseBtn">×</button>
+        </div>
+        <div class="ai-messages" id="msgBox">
+            <div class="msg-bot">Hello! I can help you find shelters and free meal services in San Francisco. Try asking these questions:
+1. How many shelters are available?
+2. Where are all meal sites?
+3. Address of Next Door Shelter
+4. Find the closest location to me</div>
+        </div>
+        <div class="ai-input-area">
+            <input type="text" id="userInput" placeholder="Type your question here...">
+            <button id="sendBtn">Send</button>
+        </div>
+    </div>
+
+<script>
+// 封面入场动画
+const coverPage = document.getElementById('coverPage');
+const mainBox = document.getElementById('mainBox');
+document.getElementById('enterSiteBtn').addEventListener('click', ()=>{
+    coverPage.classList.add('hidden');
+    setTimeout(()=>{
+        mainBox.classList.add('show');
+    }, 450);
+});
+
+// 点位数据（完全沿用原有数据）
+const resourceData = {
+    shelter: [
+        {
+            name:"Next Door Shelter",
+            address:"1001 Polk St (Geary St), San Francisco, CA 94109",
+            note:"24-hour check-in for single adults. Hotline: 628-652-8000",
+            lat:37.786153,
+            lng:-122.419926
+        },
+        {
+            name:"MSC-South Multi-Service Center",
+            address:"525 5th Street (Bryant St), San Francisco, CA 94107",
+            note:"SOMA district shelter intake & appointment center",
+            lat:37.777748,
+            lng:-122.399859
+        },
+        {
+            name:"The Sanctuary (Episcopal Community Services)",
+            address:"201 8th Street (Howard St), San Francisco, CA 94103",
+            note:"Senior-preferred shelter with two free daily meals",
+            lat:37.776210,
+            lng:-122.402670
+        }
+    ],
+    food: [
+        {
+            name:"GLIDE Foundation Daily Meal Program",
+            address:"330 Ellis St, San Francisco, CA 94102",
+            note:"Year-round three meals daily: Breakfast 8:00-9:00, Lunch 11:30-13:00, Dinner 16:00-17:00",
+            lat:37.784260,
+            lng:-122.413680
+        },
+        {
+            name:"St. Anthony’s Dining Room",
+            address:"121 Golden Gate Ave, San Francisco, CA 94102",
+            note:"Free breakfast & lunch served every day",
+            lat:37.782120,
+            lng:-122.418350
+        },
+        {
+            name:"Mother Brown’s Dining Room (Bayview)",
+            address:"2111 Jennings St, San Francisco, CA 94124",
+            note:"Designated hot meal support station for Bayview residents",
+            lat:37.728940,
+            lng:-122.390720
+        }
+    ]
+};
+
+let mapInstance;
+let mapMarkers = [];
+let userLocationMarker = null;
+let routingControl = null;
+let currentResourceType = 'shelter';
+let userLat = null;
+let userLng = null;
+
+// 初始化地图
+function initMap(){
+    mapInstance = L.map('map').setView([37.7749, -122.4194], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap Contributors | SF Homeless Support Public Data'
+    }).addTo(mapInstance);
+}
+
+// 距离计算
+function getDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLon/2) * Math.sin(dLon/2);
+    return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)));
+}
+
+// 渲染侧边栏列表（复原原版结构，不会竖排）
+function renderResources(type){
+    currentResourceType = type;
+    const titleElement = document.getElementById('sidebar-title');
+    const listElement = document.getElementById('list-wrapper');
+    listElement.innerHTML = '';
+
+    mapMarkers.forEach(marker => mapInstance.removeLayer(marker));
+    mapMarkers = [];
+    if(routingControl) mapInstance.removeControl(routingControl);
+
+    const currentList = resourceData[type];
+    const titleMapping = {
+        shelter: "Available Emergency Adult Shelters",
+        food: "Free Meal Distribution Sites"
+    };
+    titleElement.textContent = titleMapping[type];
+
+    currentList.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.dataset.index = index;
+        listItem.innerHTML = `
+            <div class="place-title">${item.name}</div>
+            <div class="place-address">${item.address}</div>
+            <div class="place-desc">${item.note}</div>
+        `;
+        listItem.addEventListener('click', ()=>{
+            if(userLat && userLng){
+                createWalkingRoute([userLat, userLng], [item.lat, item.lng]);
+            }else{
+                alert("Please click the button above to allow location access first");
+            }
+        })
+        listElement.appendChild(listItem);
+
+        const newMarker = L.marker([item.lat, item.lng]).addTo(mapInstance);
+        newMarker.bindPopup(`
+            <strong>${item.name}</strong><br>
+            ${item.address}<br>
+            <small>${item.note}</small>
+        `);
+        mapMarkers.push(newMarker);
+    })
+}
+
+// 步行路线规划
+function createWalkingRoute(start, end){
+    if(routingControl) mapInstance.removeControl(routingControl);
+    routingControl = L.Routing.control({
+        waypoints: [
+            L.latLng(start[0], start[1]),
+            L.latLng(end[0], end[1])
+        ],
+        routeWhileDragging: false,
+        profile: 'walking',
+        language: 'en',
+        showAlternatives: false
+    }).addTo(mapInstance);
+}
+
+// 定位按钮
+document.getElementById('locate-btn').addEventListener('click', ()=>{
+    if (!navigator.geolocation) {
+        alert("Your browser does not support geolocation");
+        return;
+    }
+    navigator.geolocation.getCurrentPosition(
+        (position)=>{
+            userLat = position.coords.latitude;
+            userLng = position.coords.longitude;
+            const userPos = L.latLng(userLat, userLng);
+
+            if(userLocationMarker) mapInstance.removeLayer(userLocationMarker);
+            userLocationMarker = L.marker(userPos, {icon: L.divIcon({html:'📍',className:'user-marker',iconSize:[30,30]})})
+                .addTo(mapInstance)
+                .bindPopup("Your Current Location")
+                .openPopup();
+            mapInstance.setView(userPos, 14);
+
+            const list = resourceData[currentResourceType];
+            let nearestPoint = null;
+            let minDistance = Infinity;
+            list.forEach(point=>{
+                const dist = getDistance(userLat, userLng, point.lat, point.lng);
+                if(dist < minDistance){
+                    minDistance = dist;
+                    nearestPoint = point;
+                }
+            })
+
+            createWalkingRoute([userLat, userLng], [nearestPoint.lat, nearestPoint.lng]);
+            alert(`✅ Closest location matched: ${nearestPoint.name}\nStraight-line distance: ${minDistance.toFixed(2)} km\nWalking route generated automatically`);
+        },
+        ()=>{
+            alert("Failed to get location. Please enable GPS and browser location permission");
+        }
+    )
+})
+
+// 切换分类标签
+document.querySelectorAll('.tab-buttons button').forEach(button => {
+    if(button.id !== 'locate-btn'){
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.tab-buttons button').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            renderResources(button.dataset.type);
+        })
+    }
+})
+
+// AI聊天功能（完全保留不变）
+const aiToggleBtn = document.getElementById('aiToggleBtn');
+const aiChatBox = document.getElementById('aiChatBox');
+const aiCloseBtn = document.getElementById('aiCloseBtn');
+
+aiToggleBtn.addEventListener('click', ()=>{
+    aiChatBox.classList.toggle('open');
+});
+aiCloseBtn.addEventListener('click', ()=>{
+    aiChatBox.classList.remove('open');
+});
+
+function appendMsg(text, isUser=false) {
+    const box = document.getElementById('msgBox');
+    const div = document.createElement('div');
+    div.className = isUser ? 'msg-user' : 'msg-bot';
+    div.innerText = text;
+    box.appendChild(div);
+    box.scrollTop = box.scrollHeight;
+}
+
+const qaLibrary = [
+    {
+        keys: ["how many shelters", "total shelters", "number of shelters"],
+        reply: "There are 3 official emergency adult shelters in total:\n1. Next Door Shelter (24-hour intake)\n2. MSC-South Multi-Service Center\n3. The Sanctuary (senior priority with two daily meals)"
+    },
+    {
+        keys: ["meal", "food", "free food", "dining", "feed"],
+        reply: "Three permanent free meal service sites:\n1. GLIDE Foundation: Breakfast, lunch & dinner all year round\n2. St. Anthony’s Dining Room: Daily breakfast and lunch\n3. Mother Brown’s Dining Room: Bayview district hot meal station"
+    },
+    {
+        keys: ["1+1", "one plus one"],
+        reply: "1+1 equals 2"
+    },
+    {
+        keys: ["next door shelter", "polk street shelter"],
+        reply: "Address: 1001 Polk St (Geary St), San Francisco, CA 94109\nService: 24-hour check-in for single adults\nSupport Hotline: 628-652-8000"
+    },
+    {
+        keys: ["closest", "nearest", "direction", "route", "navigate"],
+        reply: "Please click the top button labeled 📍 Find Nearest Resource, the system will detect your location and plan the best walking route."
+    },
+    {
+        keys: ["all addresses", "full list", "all locations"],
+        reply: "Shelter List:\n1. Next Door Shelter\n2. MSC-South Multi-Service Center\n3. The Sanctuary\n\nMeal Site List:\n1. GLIDE Foundation\n2. St. Anthony’s Dining Room\n3. Mother Brown’s Dining Room\nYou may ask for details of any single location."
+    }
+];
+
+document.getElementById('sendBtn').addEventListener('click', ()=>{
+    const input = document.getElementById('userInput');
+    const rawText = input.value.trim();
+    if(!rawText) return;
+
+    appendMsg(rawText, true);
+    input.value = '';
+    const lowerText = rawText.toLowerCase();
+    let finalReply = "Sorry, I cannot answer this question. You may inquire about shelters, free meals, addresses or navigation.";
+
+    for(let item of qaLibrary){
+        const isMatch = item.keys.some(key => lowerText.includes(key.toLowerCase()));
+        if(isMatch){
+            finalReply = item.reply;
+            break;
+        }
+    }
+    appendMsg(finalReply);
+})
+
+document.getElementById('userInput').addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter') document.getElementById('sendBtn').click();
+})
+
+window.onload = ()=>{
+    initMap();
+    renderResources('shelter');
+}
+</script>
 </body>
 </html>
