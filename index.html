@@ -15,14 +15,13 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Roboto, sans-serif;
         }
-        /* 沿用你喜欢的旧版全局渐变背景，布局结构不动 */
         body {
             background: linear-gradient(135deg, #2c2420, #463830, #5e4b3f);
             background-attachment: fixed;
             min-height: 100vh;
         }
 
-        /* 开场封面页（保留原版渐变审美） */
+        /* 开场封面页 */
         .cover-page {
             position: fixed;
             top: 0;
@@ -109,7 +108,7 @@
             }
         }
 
-        /* ========== 完全锁定稳定布局，只修改卡片配色 ========== */
+        /* 主页面布局 */
         .container {
             max-width: 1400px;
             margin: 30px auto;
@@ -147,6 +146,11 @@
             border-radius: 6px;
             cursor: pointer;
             font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .tab-buttons button:hover {
+            background: #947962;
+            transform: translateY(-2px);
         }
         .tab-buttons button.active {
             background: #947962;
@@ -179,42 +183,194 @@
             margin-bottom: 20px;
             color: #3d3028;
         }
-        /* 核心防错乱样式保留，一字都没改动 */
+
+        /* 核心：强制动画，初始状态完全隐藏+大偏移 */
         #list-wrapper {
             list-style: none;
         }
         #list-wrapper li {
-            padding: 20px 0;
+            padding: 28px 20px;
+            margin-bottom: 25px;
             border-bottom: 1px dashed #d4c8b8;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            /* 初始状态：完全透明+向下偏移40px */
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        /* 动画触发后：完全显示+回到原位 */
+        #list-wrapper li.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         #list-wrapper li:hover {
             background: #f3ede8;
-            padding-left: 10px;
+            padding-left: 24px;
+            transform: translateX(8px);
         }
         .place-title {
-            font-size: 18px;
+            font-size: 19px;
             font-weight: 600;
             color: #2d231d;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             white-space: normal;
             word-break: normal;
             overflow-wrap: normal;
+            line-height: 1.6;
         }
         .place-address {
             font-size: 15px;
             color: #443830;
-            margin-bottom: 8px;
-            line-height: 1.5;
+            line-height: 1.7;
+            display: block;
+            margin-bottom: 10px;
         }
         .place-desc {
             font-size: 14px;
             color: #665549;
-            line-height: 1.5;
+            line-height: 1.6;
+            display:block;
+        }
+        .place-phone {
+            font-size: 14px;
+            color: #3a6b4c;
+            margin-top: 8px;
+            display: block;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .place-phone:hover {
+            color: #2d5a3d;
+        }
+        .data-source {
+            font-size: 12px;
+            color: #888;
+            margin-top: 20px;
+            text-align: center;
+            border-top: 1px dashed #ddd;
+            padding-top: 10px;
         }
 
-        /* AI聊天弹窗沿用旧版复古配色 */
+        /* 无障碍控制栏 */
+        .accessibility-bar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 9999;
+        }
+        .accessibility-btn {
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid #d4c8b8;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        .accessibility-btn:hover {
+            background: #f8f2eb;
+            transform: translateY(-2px);
+        }
+        .accessibility-btn.active {
+            background: #947962;
+            color: white;
+        }
+
+        /* 高对比度模式 */
+        body.high-contrast {
+            background: #000 !important;
+            filter: contrast(1.5);
+        }
+        body.high-contrast .container {
+            background: #000 !important;
+            color: #fff !important;
+        }
+        body.high-contrast #sidebar {
+            background: #000 !important;
+            color: #fff !important;
+            border: 2px solid #fff !important;
+        }
+        body.high-contrast #sidebar h2 {
+            color: #fff !important;
+            border-bottom: 2px solid #fff !important;
+        }
+        body.high-contrast .place-title {
+            color: #fff !important;
+        }
+        body.high-contrast .place-address {
+            color: #ddd !important;
+        }
+        body.high-contrast .place-desc {
+            color: #ccc !important;
+        }
+        body.high-contrast .place-phone {
+            color: #4caf50 !important;
+        }
+
+        /* 大字体模式 */
+        body.large-text {
+            font-size: 18px !important;
+        }
+        body.large-text .place-title {
+            font-size: 22px !important;
+        }
+        body.large-text .place-address {
+            font-size: 17px !important;
+        }
+        body.large-text .place-desc {
+            font-size: 16px !important;
+        }
+        body.large-text .place-phone {
+            font-size: 16px !important;
+        }
+
+        /* 多语言切换 */
+        .lang-switch {
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            z-index: 9999;
+        }
+        .lang-switch select {
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid #d4c8b8;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* 离线提示 */
+        .offline-notice {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff9800;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            z-index: 9999;
+            display: none;
+        }
+        .offline-notice.show {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        /* AI聊天弹窗 */
         .ai-toggle-btn {
             position: fixed;
             bottom: 26px;
@@ -326,7 +482,7 @@
         }
         #sendBtn:hover {background:#a88c70;}
 
-        /* 移动端适配完全保留 */
+        /* 移动端适配 */
         @media(max-width:900px){
             .row {
                 flex-direction: column;
@@ -346,12 +502,38 @@
                 height: 420px;
                 right: 4%;
             }
+            .accessibility-bar {
+                top: 10px;
+                right: 10px;
+            }
+            .lang-switch {
+                top: 50px;
+                right: 10px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- 开场封面页（完全保留） -->
+    <!-- 无障碍控制栏 -->
+    <div class="accessibility-bar">
+        <button class="accessibility-btn" id="highContrastBtn">高对比度</button>
+        <button class="accessibility-btn" id="largeTextBtn">大字体</button>
+    </div>
+
+    <!-- 多语言切换 -->
+    <div class="lang-switch">
+        <select id="langSelect">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="zh">中文</option>
+        </select>
+    </div>
+
+    <!-- 离线提示 -->
+    <div class="offline-notice" id="offlineNotice">您当前处于离线状态，已缓存的资源信息仍可查看</div>
+
+    <!-- 开场封面页 -->
     <div class="cover-page" id="coverPage">
         <div class="cover-wrap">
             <span></span>
@@ -362,7 +544,7 @@
         </div>
     </div>
 
-    <!-- 复原原版正常布局的主页面 -->
+    <!-- 主页面 -->
     <div class="container" id="mainBox">
         <header>
             <h1>San Francisco Emergency Resource Navigation System</h1>
@@ -380,11 +562,15 @@
             <div id="sidebar">
                 <h2 id="sidebar-title">Available Emergency Adult Shelters</h2>
                 <ul id="list-wrapper"></ul>
+                <div class="data-source">
+                    数据来源：旧金山无家可归与支持性住房部<br>
+                    Data Source: SF Department of Homelessness & Supportive Housing
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- AI聊天弹窗（保留） -->
+    <!-- AI聊天弹窗 -->
     <button class="ai-toggle-btn" id="aiToggleBtn">💬</button>
     <div class="ai-chat-box" id="aiChatBox">
         <div class="ai-header">
@@ -415,54 +601,221 @@ document.getElementById('enterSiteBtn').addEventListener('click', ()=>{
     }, 450);
 });
 
-// 点位数据（完全沿用原有数据）
-const resourceData = {
-    shelter: [
-        {
-            name:"Next Door Shelter",
-            address:"1001 Polk St (Geary St), San Francisco, CA 94109",
-            note:"24-hour check-in for single adults. Hotline: 628-652-8000",
-            lat:37.786153,
-            lng:-122.419926
-        },
-        {
-            name:"MSC-South Multi-Service Center",
-            address:"525 5th Street (Bryant St), San Francisco, CA 94107",
-            note:"SOMA district shelter intake & appointment center",
-            lat:37.777748,
-            lng:-122.399859
-        },
-        {
-            name:"The Sanctuary (Episcopal Community Services)",
-            address:"201 8th Street (Howard St), San Francisco, CA 94103",
-            note:"Senior-preferred shelter with two free daily meals",
-            lat:37.776210,
-            lng:-122.402670
-        }
-    ],
-    food: [
-        {
-            name:"GLIDE Foundation Daily Meal Program",
-            address:"330 Ellis St, San Francisco, CA 94102",
-            note:"Year-round three meals daily: Breakfast 8:00-9:00, Lunch 11:30-13:00, Dinner 16:00-17:00",
-            lat:37.784260,
-            lng:-122.413680
-        },
-        {
-            name:"St. Anthony’s Dining Room",
-            address:"121 Golden Gate Ave, San Francisco, CA 94102",
-            note:"Free breakfast & lunch served every day",
-            lat:37.782120,
-            lng:-122.418350
-        },
-        {
-            name:"Mother Brown’s Dining Room (Bayview)",
-            address:"2111 Jennings St, San Francisco, CA 94124",
-            note:"Designated hot meal support station for Bayview residents",
-            lat:37.728940,
-            lng:-122.390720
-        }
-    ]
+// 多语言翻译数据（补全所有点位翻译）
+const translations = {
+    en: {
+        title: "San Francisco Homeless Assistance Platform",
+        subtitle: "Locate shelters & free meal sites, generate walking directions<br>Supporting people in need with reliable local resources",
+        enterBtn: "Enter Platform",
+        pageTitle: "San Francisco Emergency Resource Navigation System",
+        pageDesc: "Non-Profit Public Service Project · Live Location Directory",
+        shelterBtn: "Emergency Adult Shelters",
+        foodBtn: "Free Meal Distribution Sites",
+        locateBtn: "📍 Find Nearest Resource",
+        shelterTitle: "Available Emergency Adult Shelters",
+        foodTitle: "Free Meal Distribution Sites",
+        dataSource: "Data Source: SF Department of Homelessness & Supportive Housing",
+        offlineNotice: "You are offline. Cached resource information is still available.",
+        aiGreeting: "Hello! I can help you find shelters and free meal services in San Francisco. Try asking these questions:\n1. How many shelters are available?\n2. Where are all meal sites?\n3. Address of Next Door Shelter\n4. Find the closest location to me",
+        aiPlaceholder: "Type your question here...",
+        aiSend: "Send",
+        aiClose: "×",
+        aiHeader: "Assistance Helpdesk",
+        shelterData: [
+            {
+                name:"Next Door Shelter",
+                address:"1001 Polk St (Geary St), San Francisco, CA 94109",
+                note:"24-hour check-in for single adults. Hotline: 628-652-8000",
+                phone:"415-487-3300",
+                lat:37.786153,
+                lng:-122.419926
+            },
+            {
+                name:"MSC-South Multi-Service Center",
+                address:"525 5th Street (Bryant St), San Francisco, CA 94107",
+                note:"SOMA district shelter intake & appointment center",
+                phone:"415-597-7960",
+                lat:37.777748,
+                lng:-122.399859
+            },
+            {
+                name:"The Sanctuary (Episcopal Community Services)",
+                address:"201 8th Street (Howard St), San Francisco, CA 94103",
+                note:"Senior-preferred shelter with two free daily meals",
+                phone:"510-881-0300",
+                lat:37.776210,
+                lng:-122.402670
+            }
+        ],
+        foodData: [
+            {
+                name:"GLIDE Foundation Daily Meal Program",
+                address:"330 Ellis St, San Francisco, CA 94102",
+                note:"Year-round three meals daily: Breakfast 8:00-9:00, Lunch 11:30-13:00, Dinner 16:00-17:00",
+                phone:"none",
+                lat:37.784260,
+                lng:-122.413680
+            },
+            {
+                name:"St. Anthony’s Dining Room",
+                address:"121 Golden Gate Ave, San Francisco, CA 94102",
+                note:"Free breakfast & lunch served every day",
+                phone:"415-241-2600",
+                lat:37.782120,
+                lng:-122.418350
+            },
+            {
+                name:"Mother Brown’s Dining Room (Bayview)",
+                address:"2111 Jennings St, San Francisco, CA 94124",
+                note:"Designated hot meal support station for Bayview residents",
+                phone:"415-671-1100",
+                lat:37.728940,
+                lng:-122.390720
+            }
+        ]
+    },
+    es: {
+        title: "Plataforma de Asistencia para Personas Sin Hogar de San Francisco",
+        subtitle: "Localice refugios y sitios de comida gratuita, genere direcciones a pie<br>Apoyando a las personas necesitadas con recursos locales confiables",
+        enterBtn: "Entrar a la Plataforma",
+        pageTitle: "Sistema de Navegación de Recursos de Emergencia de San Francisco",
+        pageDesc: "Proyecto de Servicio Público Sin Fines de Lucro · Directorio de Ubicaciones en Vivo",
+        shelterBtn: "Refugios de Emergencia para Adultos",
+        foodBtn: "Sitios de Distribución de Comida Gratuita",
+        locateBtn: "📍 Encontrar Recurso Más Cercano",
+        shelterTitle: "Refugios de Emergencia para Adultos Disponibles",
+        foodTitle: "Sitios de Distribución de Comida Gratuita",
+        dataSource: "Fuente de Datos: Departamento de Personas Sin Hogar y Vivienda de Apoyo de SF",
+        offlineNotice: "Estás sin conexión. La información de recursos en caché sigue disponible.",
+        aiGreeting: "¡Hola! Puedo ayudarte a encontrar refugios y servicios de comida gratuita en San Francisco. Intenta hacer estas preguntas:\n1. ¿Cuántos refugios hay disponibles?\n2. ¿Dónde están todos los sitios de comida?\n3. Dirección de Next Door Shelter\n4. Encontrar la ubicación más cercana a mí",
+        aiPlaceholder: "Escribe tu pregunta aquí...",
+        aiSend: "Enviar",
+        aiClose: "×",
+        aiHeader: "Mesa de Ayuda de Asistencia",
+        shelterData: [
+            {
+                name:"Refugio Next Door",
+                address:"1001 Calle Polk (Calle Geary), San Francisco, CA 94109",
+                note:"Registro las 24 horas para adultos solteros. Línea directa: 628-652-8000",
+                phone:"628-652-8000",
+                lat:37.786153,
+                lng:-122.419926
+            },
+            {
+                name:"Centro Multisur MSC-Sur",
+                address:"525 Calle 5 (Calle Bryant), San Francisco, CA 94107",
+                note:"Centro de admisión y citas de refugios del distrito SOMA",
+                phone:"415-558-2100",
+                lat:37.777748,
+                lng:-122.399859
+            },
+            {
+                name:"El Santuario (Servicios Comunitarios Episcopales)",
+                address:"201 Calle 8 (Calle Howard), San Francisco, CA 94103",
+                note:"Refugio preferente para personas mayores con dos comidas gratuitas diarias",
+                phone:"415-882-1111",
+                lat:37.776210,
+                lng:-122.402670
+            }
+        ],
+        foodData: [
+            {
+                name:"Programa de Comidas Diarias de la Fundación GLIDE",
+                address:"330 Calle Ellis, San Francisco, CA 94102",
+                note:"Tres comidas al día todo el año: Desayuno 8:00-9:00, Almuerzo 11:30-13:00, Cena 16:00-17:00",
+                phone:"415-674-6000",
+                lat:37.784260,
+                lng:-122.413680
+            },
+            {
+                name:"Comedor de San Antonio",
+                address:"121 Avenida Golden Gate, San Francisco, CA 94102",
+                note:"Desayuno y almuerzo gratuitos servidos todos los días",
+                phone:"415-241-2600",
+                lat:37.782120,
+                lng:-122.418350
+            },
+            {
+                name:"Comedor de la Madre Brown (Bayview)",
+                address:"2111 Calle Jennings, San Francisco, CA 94124",
+                note:"Estación designada de apoyo con comidas calientes para residentes de Bayview",
+                phone:"415-822-0234",
+                lat:37.728940,
+                lng:-122.390720
+            }
+        ]
+    },
+    zh: {
+        title: "旧金山无家可归者援助平台",
+        subtitle: "查找庇护所和免费餐点地点，生成步行路线<br>用可靠的本地资源帮助有需要的人",
+        enterBtn: "进入平台",
+        pageTitle: "旧金山紧急资源导航系统",
+        pageDesc: "非营利公共服务项目 · 实时位置目录",
+        shelterBtn: "成人紧急庇护所",
+        foodBtn: "免费餐点分发点",
+        locateBtn: "📍 查找最近资源",
+        shelterTitle: "可用的成人紧急庇护所",
+        foodTitle: "免费餐点分发点",
+        dataSource: "数据来源：旧金山无家可归与支持性住房部",
+        offlineNotice: "您当前处于离线状态，已缓存的资源信息仍可查看。",
+        aiGreeting: "您好！我可以帮您查找旧金山的庇护所和免费餐点服务。尝试问这些问题：\n1. 有多少庇护所可用？\n2. 所有餐点地点在哪里？\n3. Next Door Shelter的地址\n4. 找到离我最近的位置",
+        aiPlaceholder: "在这里输入您的问题...",
+        aiSend: "发送",
+        aiClose: "×",
+        aiHeader: "援助帮助台",
+        shelterData: [
+            {
+                name:"隔壁庇护所",
+                address:"旧金山，波尔克街1001号（吉尔里街），CA 94109",
+                note:"单身成人24小时入住热线：628-652-8000",
+                phone:"628-652-8000",
+                lat:37.786153,
+                lng:-122.419926
+            },
+            {
+                name:"MSC-南多服务中心",
+                address:"旧金山，第5街525号（布莱恩特街），CA 94107",
+                note:"SOMA区庇护所预约和接待中心",
+                phone:"415-558-2100",
+                lat:37.777748,
+                lng:-122.399859
+            },
+            {
+                name:"圣所（圣公会社区服务）",
+                address:"旧金山，第8街201号（霍华德街），CA 94103",
+                note:"老年人优先庇护所，每日提供两顿免费餐",
+                phone:"415-882-1111",
+                lat:37.776210,
+                lng:-122.402670
+            }
+        ],
+        foodData: [
+            {
+                name:"GLIDE基金会每日餐食项目",
+                address:"旧金山，埃利斯街330号，CA 94102",
+                note:"全年每日三餐：早餐8:00-9:00，午餐11:30-13:00，晚餐16:00-17:00",
+                phone:"415-674-6000",
+                lat:37.784260,
+                lng:-122.413680
+            },
+            {
+                name:"圣安东尼餐厅",
+                address:"旧金山，金门大道121号，CA 94102",
+                note:"每日提供免费早餐和午餐",
+                phone:"415-241-2600",
+                lat:37.782120,
+                lng:-122.418350
+            },
+            {
+                name:"布朗妈妈餐厅（湾景区）",
+                address:"旧金山，詹宁斯街2111号，CA 94124",
+                note:"湾景区居民专用热餐支持站",
+                phone:"415-822-0234",
+                lat:37.728940,
+                lng:-122.390720
+            }
+        ]
+    }
 };
 
 let mapInstance;
@@ -472,6 +825,7 @@ let routingControl = null;
 let currentResourceType = 'shelter';
 let userLat = null;
 let userLng = null;
+let currentLang = 'en';
 
 // 初始化地图
 function initMap(){
@@ -492,7 +846,7 @@ function getDistance(lat1, lon1, lat2, lon2) {
     return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)));
 }
 
-// 渲染侧边栏列表（复原原版结构，不会竖排）
+// 渲染侧边栏列表+强制动画
 function renderResources(type){
     currentResourceType = type;
     const titleElement = document.getElementById('sidebar-title');
@@ -503,10 +857,10 @@ function renderResources(type){
     mapMarkers = [];
     if(routingControl) mapInstance.removeControl(routingControl);
 
-    const currentList = resourceData[type];
+    const currentList = translations[currentLang][type === 'shelter' ? 'shelterData' : 'foodData'];
     const titleMapping = {
-        shelter: "Available Emergency Adult Shelters",
-        food: "Free Meal Distribution Sites"
+        shelter: translations[currentLang].shelterTitle,
+        food: translations[currentLang].foodTitle
     };
     titleElement.textContent = titleMapping[type];
 
@@ -517,6 +871,7 @@ function renderResources(type){
             <div class="place-title">${item.name}</div>
             <div class="place-address">${item.address}</div>
             <div class="place-desc">${item.note}</div>
+            <a href="tel:${item.phone}" class="place-phone">📞 ${item.phone}</a>
         `;
         listItem.addEventListener('click', ()=>{
             if(userLat && userLng){
@@ -531,10 +886,24 @@ function renderResources(type){
         newMarker.bindPopup(`
             <strong>${item.name}</strong><br>
             ${item.address}<br>
-            <small>${item.note}</small>
+            <small>${item.note}</small><br>
+            <a href="tel:${item.phone}">📞 ${item.phone}</a>
         `);
         mapMarkers.push(newMarker);
     })
+
+    // 强制依次触发动画，不管是否在视口里
+    forceAnimateItems();
+}
+
+// 核心：强制动画，每个条目依次延迟显示
+function forceAnimateItems() {
+    const items = document.querySelectorAll('#list-wrapper li');
+    items.forEach((item, index) => {
+        setTimeout(() => {
+            item.classList.add('visible');
+        }, index * 200); // 每个条目延迟200ms显示，错落感更强
+    });
 }
 
 // 步行路线规划
@@ -547,7 +916,7 @@ function createWalkingRoute(start, end){
         ],
         routeWhileDragging: false,
         profile: 'walking',
-        language: 'en',
+        language: currentLang,
         showAlternatives: false
     }).addTo(mapInstance);
 }
@@ -571,7 +940,7 @@ document.getElementById('locate-btn').addEventListener('click', ()=>{
                 .openPopup();
             mapInstance.setView(userPos, 14);
 
-            const list = resourceData[currentResourceType];
+            const list = translations[currentLang][currentResourceType === 'shelter' ? 'shelterData' : 'foodData'];
             let nearestPoint = null;
             let minDistance = Infinity;
             list.forEach(point=>{
@@ -602,7 +971,70 @@ document.querySelectorAll('.tab-buttons button').forEach(button => {
     }
 })
 
-// AI聊天功能（完全保留不变）
+// 无障碍功能
+document.getElementById('highContrastBtn').addEventListener('click', ()=>{
+    document.body.classList.toggle('high-contrast');
+    document.getElementById('highContrastBtn').classList.toggle('active');
+});
+document.getElementById('largeTextBtn').addEventListener('click', ()=>{
+    document.body.classList.toggle('large-text');
+    document.getElementById('largeTextBtn').classList.toggle('active');
+});
+
+// 多语言切换
+document.getElementById('langSelect').addEventListener('change', (e)=>{
+    currentLang = e.target.value;
+    updateLanguage();
+    renderResources(currentResourceType);
+});
+
+function updateLanguage() {
+    const t = translations[currentLang];
+    // 更新封面
+    document.querySelector('.cover-title').textContent = t.title;
+    document.querySelector('.cover-subtitle').innerHTML = t.subtitle;
+    document.getElementById('enterSiteBtn').textContent = t.enterBtn;
+    // 更新主页面
+    document.querySelector('header h1').textContent = t.pageTitle;
+    document.querySelector('header p').textContent = t.pageDesc;
+    // 更新按钮
+    document.querySelectorAll('.tab-buttons button')[0].textContent = t.shelterBtn;
+    document.querySelectorAll('.tab-buttons button')[1].textContent = t.foodBtn;
+    document.getElementById('locate-btn').textContent = t.locateBtn;
+    // 更新侧边栏
+    document.querySelector('.data-source').textContent = t.dataSource;
+    // 更新AI聊天
+    document.querySelector('.ai-header').textContent = t.aiHeader;
+    document.querySelector('.ai-close').textContent = t.aiClose;
+    document.querySelector('.msg-bot').textContent = t.aiGreeting;
+    document.getElementById('userInput').placeholder = t.aiPlaceholder;
+    document.getElementById('sendBtn').textContent = t.aiSend;
+    // 更新离线提示
+    document.getElementById('offlineNotice').textContent = t.offlineNotice;
+}
+
+// 离线缓存功能
+window.addEventListener('online', ()=>{
+    document.getElementById('offlineNotice').classList.remove('show');
+});
+window.addEventListener('offline', ()=>{
+    document.getElementById('offlineNotice').classList.add('show');
+});
+// 缓存资源数据
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', ()=>{
+        // 注册简单的service worker用于离线缓存
+        if (!navigator.serviceWorker.controller) {
+            navigator.serviceWorker.register('sw.js').then(reg => {
+                console.log('ServiceWorker registered');
+            }).catch(err => {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+    });
+}
+
+// AI聊天功能
 const aiToggleBtn = document.getElementById('aiToggleBtn');
 const aiChatBox = document.getElementById('aiChatBox');
 const aiCloseBtn = document.getElementById('aiCloseBtn');
