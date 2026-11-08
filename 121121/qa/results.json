@@ -1,0 +1,19 @@
+{
+  "checked": "2026-11-07",
+  "checks": [
+    "Initial list: 8 entries, zero third-party requests",
+    "Category filters and reset",
+    "Search plus Chinese and Spanish translations",
+    "Location denial leaves resources usable",
+    "Mock location sorts by distance and can be cleared",
+    "Failed tiles show fallback; 7 pins and popups work",
+    "Text download contains resource details",
+    "390px and 320px: no horizontal overflow, map collapses",
+    "Leaflet script failure does not hide the list",
+    "Blocked localStorage still allows initialization",
+    "Without JavaScript all addresses and calls remain available",
+    "Service worker reopens the directory offline",
+    "No uncaught browser errors"
+  ],
+  "errors": []
+}

@@ -1,0 +1,16 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'..'),C=require('../js/core.js');
+const data=JSON.parse(fs.readFileSync(path.join(root,'data/resources.json'),'utf8'));
+let html=fs.readFileSync(path.join(root,'src/index.html'),'utf8');
+const replacements={CHECKED:data.checked,DATE:C.dateLabel(data.checked,'en'),RESOURCES:data.resources.map(r=>C.card(r,'en',data.checked,null)).join('\n'),DATA:JSON.stringify(data).replace(/</g,'\\u003c')};
+for(const name of ['heart','food','shelter','groceries','search','locate','map','download','phone','arrow'])replacements[name.toUpperCase()]=C.icon(name);
+html=html.replace(/__([A-Z]+)__/g,(_,key)=>{if(!(key in replacements))throw new Error('Unknown placeholder '+key);return replacements[key]});
+fs.writeFileSync(path.join(root,'index.html'),html);
+const assets=['./','./index.html','./css/site.css','./js/core.js','./js/app.js','./assets/favicon.svg'];
+const hash=crypto.createHash('sha256');
+for(const asset of assets.filter(x=>x!=='./'))hash.update(fs.readFileSync(path.join(root,asset)));
+const version='sf-neighbor-'+hash.digest('hex').slice(0,12);
+let sw=fs.readFileSync(path.join(root,'src/sw.js'),'utf8').replace('__CACHE__',version).replace('__ASSETS__',JSON.stringify(assets));
+fs.writeFileSync(path.join(root,'sw.js'),sw);
+console.log('Built index.html and sw.js; '+data.resources.length+' resources; '+version);

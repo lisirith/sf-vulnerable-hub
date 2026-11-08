@@ -1,0 +1,78 @@
+{
+  "checked": "2026-11-07",
+  "timezone": "America/Los_Angeles",
+  "resources": [
+    {
+      "id": "glide", "type": "food", "name": "GLIDE Daily Free Meals", "neighborhood": "Tenderloin",
+      "address": "330 Ellis Street, San Francisco, CA 94102", "lat": 37.7853266, "lng": -122.4117173,
+      "phone": "4156746000", "access": "walkin",
+      "sources": [{"name": "GLIDE · Meal program", "url": "https://www.glide.org/programs/daily-free-meals/"}, {"name": "GLIDE · Contact", "url": "https://www.glide.org/contact/"}],
+      "en": {"hours": "Daily: breakfast 7:30–9 am; lunch 11:30 am–1 pm; dinner 3:30–5 pm.", "note": "7:30–8 am breakfast is reserved for seniors, families and adults with disabilities. No eligibility screening or intake form. Check holiday changes.", "phoneLabel": "Main office"},
+      "es": {"hours": "Diario: desayuno 7:30–9 am; almuerzo 11:30 am–1 pm; cena 3:30–5 pm.", "note": "De 7:30 a 8 am, desayuno para mayores, familias y adultos con discapacidad. Sin requisitos ni formulario de ingreso. Confirme cambios en festivos.", "phoneLabel": "Oficina"},
+      "zh": {"hours": "每日：早餐 7:30–9:00；午餐 11:30–13:00；晚餐 15:30–17:00。", "note": "7:30–8:00 早餐时段仅供长者、家庭及残障成人。无需资格审核或登记表；节假日请确认。", "phoneLabel": "机构总机"}
+    },
+    {
+      "id": "st-anthony", "type": "food", "name": "St. Anthony’s Dining Room", "neighborhood": "Tenderloin",
+      "address": "121 Golden Gate Avenue, 1st Floor, San Francisco, CA 94102", "lat": 37.781848, "lng": -122.4125596,
+      "phone": "4152412600", "access": "walkin",
+      "sources": [{"name": "St. Anthony’s · Dining Room", "url": "https://www.stanthonysf.org/services/dining-room/"}],
+      "en": {"hours": "Daily: breakfast starts at 7 am; lunch 10 am–1:30 pm. Mon–Fri: takeaway hot meal at 2 pm.", "note": "Breakfast: eat in or take away. Lunch: eat in. Breakfast end time is not published; confirm with the provider.", "phoneLabel": "Main office"},
+      "es": {"hours": "Diario: desayuno desde las 7 am; almuerzo 10 am–1:30 pm. Lun–vie: comida caliente para llevar a las 2 pm.", "note": "Desayuno en el comedor o para llevar; almuerzo en el comedor. Confirme la hora de cierre del desayuno.", "phoneLabel": "Oficina"},
+      "zh": {"hours": "每日：早餐 7:00 开始；午餐 10:00–13:30。周一至周五 14:00 供应外带热餐。", "note": "早餐可堂食或外带，午餐为堂食。官网未公布早餐结束时间，请向机构确认。", "phoneLabel": "机构总机"}
+    },
+    {
+      "id": "mother-brown", "type": "food", "name": "Mother Brown’s Kitchen", "neighborhood": "Bayview",
+      "address": "2111 Jennings Street, San Francisco, CA 94124", "lat": 37.72673, "lng": -122.3886693,
+      "phone": "4156711100", "access": "intake",
+      "sources": [{"name": "Felton Institute · Mother Brown’s Kitchen", "url": "https://felton.org/social-services/adult/mother-browns-kitchen/"}],
+      "en": {"hours": "Breakfast daily 7–9 am. Dinner: Mon–Fri 5–7 pm; Sat–Sun 4–6 pm.", "note": "Takeaway meals for adults 18+ experiencing or at risk of homelessness. A basic intake form is required; no outside paperwork or income proof. Operated by Felton Institute.", "phoneLabel": "Office · Mon–Fri 9 am–5 pm"},
+      "es": {"hours": "Desayuno diario 7–9 am. Cena: lun–vie 5–7 pm; sáb–dom 4–6 pm.", "note": "Comida para llevar para adultos de 18+ sin hogar o en riesgo. Requiere un formulario básico, sin documentos externos ni prueba de ingresos. Operado por Felton Institute.", "phoneLabel": "Oficina · lun–vie 9 am–5 pm"},
+      "zh": {"hours": "每日早餐 7:00–9:00。晚餐：周一至周五 17:00–19:00；周末 16:00–18:00。", "note": "为无家可归或面临失去住所风险的 18 岁及以上成人提供外带餐食。需填基本登记表，无需外部文件或收入证明。由 Felton Institute 运营。", "phoneLabel": "办公室 · 工作日 9:00–17:00"}
+    },
+    {
+      "id": "dolores", "type": "shelter", "name": "Dolores Shelter Program", "neighborhood": "Mission",
+      "address": "1050 South Van Ness Avenue, San Francisco, CA 94110", "lat": 37.7564789, "lng": -122.4169612,
+      "phone": "4152826209", "access": "walkup",
+      "sources": [{"name": "Mission Action · Housing & Shelter", "url": "https://www.missionaction.org/our-work/housing-shelter/"}],
+      "en": {"hours": "Every night, 6 pm–8 am. Line up no earlier than 5:30 pm.", "note": "Adult overnight shelter. Walk up; first come, first served, subject to space. Bilingual services; includes Jazzie’s Place for the LGBTQ+ community.", "phoneLabel": "Mission Action · Main office"},
+      "es": {"hours": "Cada noche, 6 pm–8 am. La fila empieza a las 5:30 pm; no llegue antes.", "note": "Refugio nocturno para adultos. Por orden de llegada y según disponibilidad. Servicios bilingües; incluye Jazzie’s Place para la comunidad LGBTQ+.", "phoneLabel": "Mission Action · Oficina"},
+      "zh": {"hours": "每日夜间 18:00 至次日 8:00；最早 17:30 开始排队。", "note": "成人夜间收容服务，可现场排队，先到先服务，视床位而定。提供双语服务，含面向 LGBTQ+ 群体的 Jazzie’s Place。", "phoneLabel": "Mission Action · 总机"}
+    },
+    {
+      "id": "next-door", "type": "shelter", "name": "Next Door Shelter", "neighborhood": "Tenderloin",
+      "address": "1001 Polk Street, San Francisco, CA 94109", "lat": 37.786002, "lng": -122.419866,
+      "phone": "6286528000", "access": "waitlist",
+      "sources": [{"name": "SF · Shelter access guidance (2026 PDF)", "url": "https://media.api.sf.gov/documents/HRC_Community_Guidance_2026.pdf"}, {"name": "SF · Next Door program (PDF)", "url": "https://media.api.sf.gov/documents/Agenda_Item_10_Five_Keys-Next_Door.pdf"}],
+      "en": {"hours": "24-hour shelter for enrolled residents. New beds use the city’s adult shelter waitlist.", "note": "Call the shelter access line or use the city’s registration page before traveling. A listing does not mean a bed is available. Operated by Five Keys.", "phoneLabel": "SF adult shelter access"},
+      "es": {"hours": "Refugio de 24 horas para residentes inscritos. Nuevas plazas mediante la lista de espera municipal.", "note": "Llame a la línea de acceso o consulte el registro municipal antes de ir. No se garantiza una cama. Operado por Five Keys.", "phoneLabel": "Acceso a refugios de SF"},
+      "zh": {"hours": "为已入住人员提供全天服务；新床位需通过市政府成人收容候补流程申请。", "note": "出发前请致电收容服务专线或查看市政府登记页面。列入目录不代表有空床位。由 Five Keys 运营。", "phoneLabel": "旧金山成人收容专线"}
+    },
+    {
+      "id": "msc-south", "type": "shelter", "name": "MSC-South Shelter", "neighborhood": "SoMa",
+      "address": "525 5th Street, San Francisco, CA 94107", "lat": 37.777748, "lng": -122.3998587,
+      "phone": "6286528000", "access": "waitlist",
+      "sources": [{"name": "SF · Shelter access guidance (2026 PDF)", "url": "https://media.api.sf.gov/documents/HRC_Community_Guidance_2026.pdf"}, {"name": "St. Vincent de Paul · Contact", "url": "https://svdp-sf.org/contact-us/"}],
+      "en": {"hours": "Adult shelter beds through the city’s reservation waitlist.", "note": "Arrange shelter access before going. For site questions, call 415-597-7960. Operated by St. Vincent de Paul.", "phoneLabel": "SF adult shelter access"},
+      "es": {"hours": "Camas para adultos mediante la lista de espera de la ciudad.", "note": "Gestione el acceso antes de ir. Consultas al centro: 415-597-7960. Operado por St. Vincent de Paul.", "phoneLabel": "Acceso a refugios de SF"},
+      "zh": {"hours": "成人床位通过市政府预约候补流程安排。", "note": "请先联系收容专线，再前往。场地咨询：415-597-7960。由 St. Vincent de Paul 运营。", "phoneLabel": "旧金山成人收容专线"}
+    },
+    {
+      "id": "sanctuary", "type": "shelter", "name": "The Sanctuary", "neighborhood": "SoMa",
+      "address": "201 8th Street, San Francisco, CA 94103", "lat": 37.7762948, "lng": -122.4111736,
+      "phone": "6286528000", "access": "waitlist",
+      "sources": [{"name": "SF · Shelter access guidance (2026 PDF)", "url": "https://media.api.sf.gov/documents/HRC_Community_Guidance_2026.pdf"}, {"name": "ECS · Sanctuary", "url": "https://www.ecs-sf.org/sanctuary"}],
+      "en": {"hours": "24-hour adult shelter; new beds use the city’s waitlist.", "note": "Meals, showers and laundry for shelter residents. Call 628-626-1210 for site questions. Operated by Episcopal Community Services.", "phoneLabel": "SF adult shelter access"},
+      "es": {"hours": "Refugio de 24 horas para adultos; nuevas plazas por lista de espera municipal.", "note": "Comidas, duchas y lavandería para residentes. Consultas al centro: 628-626-1210. Operado por Episcopal Community Services.", "phoneLabel": "Acceso a refugios de SF"},
+      "zh": {"hours": "全天成人收容服务；新床位需通过市政府候补流程申请。", "note": "餐食、淋浴及洗衣服务面向已入住人员。场地咨询：628-626-1210。由 Episcopal Community Services 运营。", "phoneLabel": "旧金山成人收容专线"}
+    },
+    {
+      "id": "food-bank", "type": "groceries", "name": "San Francisco–Marin Food Bank", "neighborhood": "Citywide",
+      "address": "", "lat": null, "lng": null, "phone": "4158243663", "access": "finder",
+      "url": "https://www.sfmfoodbank.org/find-food/",
+      "sources": [{"name": "SF–Marin Food Bank · Find Food", "url": "https://www.sfmfoodbank.org/find-food/"}, {"name": "Food Bank · Participant help", "url": "https://www.sfmfoodbank.org/pop-up-pantry-faqs/"}],
+      "en": {"hours": "Pantry schedules and eligibility vary by location.", "note": "Use the Food Locator or call to find grocery pickup and emergency food. Choose a distribution site first; the warehouse is not listed here as a walk-in pantry.", "phoneLabel": "Food Bank assistance"},
+      "es": {"hours": "Horarios y requisitos varían según la despensa.", "note": "Use el localizador o llame para encontrar alimentos y ayuda de emergencia. Elija primero un punto de distribución; el almacén no figura como despensa sin cita.", "phoneLabel": "Ayuda del Food Bank"},
+      "zh": {"hours": "各食品领取点的时间及资格要求不同。", "note": "通过官方查询工具或电话寻找食品领取点及应急食物。先确定领取地点；本目录不把仓库当作可直接领取食物的站点。", "phoneLabel": "Food Bank 求助专线"}
+    }
+  ]
+}

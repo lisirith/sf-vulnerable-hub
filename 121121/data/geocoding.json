@@ -1,0 +1,184 @@
+[
+  {
+    "query": "1001 Polk Street",
+    "result": [
+      {
+        "place_id": 404687008,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+        "osm_type": "way",
+        "osm_id": 225847531,
+        "lat": "37.7860020",
+        "lon": "-122.4198660",
+        "class": "place",
+        "type": "house",
+        "place_rank": 30,
+        "importance": 9.99999999995449E-06,
+        "addresstype": "place",
+        "name": "",
+        "display_name": "1001, Polk Street, Polk Gulch, Tenderloin, San Francisco, California, 94109, United States",
+        "boundingbox": [
+          "37.7859520",
+          "37.7860520",
+          "-122.4199160",
+          "-122.4198160"
+        ]
+      }
+    ]
+  },
+  {
+    "query": "525 5th Street",
+    "result": [
+      {
+        "place_id": 323200216,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+        "osm_type": "way",
+        "osm_id": 218185111,
+        "lat": "37.7777480",
+        "lon": "-122.3998587",
+        "class": "amenity",
+        "type": "social_facility",
+        "place_rank": 30,
+        "importance": 8.251392385743523E-05,
+        "addresstype": "amenity",
+        "name": "Multi-Service Center South",
+        "display_name": "Multi-Service Center South, 525, 5th Street, South of Market, Mission Bay, Mission, San Francisco, California, 94107, United States",
+        "boundingbox": [
+          "37.7775039",
+          "37.7779623",
+          "-122.4001291",
+          "-122.3995415"
+        ]
+      }
+    ]
+  },
+  {
+    "query": "201 8th Street",
+    "result": [
+      {
+        "place_id": 323447116,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+        "osm_type": "way",
+        "osm_id": 243357053,
+        "lat": "37.7762948",
+        "lon": "-122.4111736",
+        "class": "amenity",
+        "type": "social_facility",
+        "place_rank": 30,
+        "importance": 8.251392385743523E-05,
+        "addresstype": "amenity",
+        "name": "The Sanctuary",
+        "display_name": "The Sanctuary, 201, 8th Street, South of Market, Tenderloin, Mission, San Francisco, California, 94103, United States",
+        "boundingbox": [
+          "37.7760671",
+          "37.7764932",
+          "-122.4114259",
+          "-122.4109213"
+        ]
+      }
+    ]
+  },
+  {
+    "query": "330 Ellis Street",
+    "result": [
+      {
+        "place_id": 321069163,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+        "osm_type": "way",
+        "osm_id": 260126024,
+        "lat": "37.7853266",
+        "lon": "-122.4117173",
+        "class": "building",
+        "type": "yes",
+        "place_rank": 30,
+        "importance": 8.251392385743523E-05,
+        "addresstype": "building",
+        "name": "",
+        "display_name": "330, Ellis Street, Union Square, Tenderloin, San Francisco, California, 94102, United States",
+        "boundingbox": [
+          "37.7851055",
+          "37.7854593",
+          "-122.4118036",
+          "-122.4116141"
+        ]
+      }
+    ]
+  },
+  {
+    "query": "121 Golden Gate Avenue",
+    "result": [
+      {
+        "place_id": 322851065,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+        "osm_type": "way",
+        "osm_id": 35536670,
+        "lat": "37.7818480",
+        "lon": "-122.4125596",
+        "class": "building",
+        "type": "apartments",
+        "place_rank": 30,
+        "importance": 8.251392385743523E-05,
+        "addresstype": "building",
+        "name": "St Anthony's Vera Haile Senior Housing",
+        "display_name": "St Anthony's Vera Haile Senior Housing, 121, Golden Gate Avenue, Civic Center, San Francisco, California, 94102, United States",
+        "boundingbox": [
+          "37.7817172",
+          "37.7819721",
+          "-122.4128100",
+          "-122.4122993"
+        ]
+      }
+    ]
+  },
+  {
+    "query": "2111 Jennings Street",
+    "result": [
+      {
+        "place_id": 324245154,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+        "osm_type": "way",
+        "osm_id": 289737012,
+        "lat": "37.7267300",
+        "lon": "-122.3886693",
+        "class": "building",
+        "type": "yes",
+        "place_rank": 30,
+        "importance": 8.251392385743523E-05,
+        "addresstype": "building",
+        "name": "",
+        "display_name": "2111;2135;2139, Jennings Street, Bayview District, San Francisco, California, 94124, United States",
+        "boundingbox": [
+          "37.7265569",
+          "37.7269085",
+          "-122.3888776",
+          "-122.3884609"
+        ]
+      }
+    ]
+  },
+  {
+    "query": "1050 South Van Ness Avenue",
+    "result": [
+      {
+        "place_id": 323432567,
+        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+        "osm_type": "way",
+        "osm_id": 261126830,
+        "lat": "37.7564789",
+        "lon": "-122.4169612",
+        "class": "amenity",
+        "type": "place_of_worship",
+        "place_rank": 30,
+        "importance": 8.251392385743523E-05,
+        "addresstype": "amenity",
+        "name": "Iglesia de Santa Maria y Santa Marta",
+        "display_name": "Iglesia de Santa Maria y Santa Marta, 1050, South Van Ness Avenue, Mission, San Francisco, California, 94110, United States",
+        "boundingbox": [
+          "37.7564138",
+          "37.7565550",
+          "-122.4170560",
+          "-122.4168656"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="Find free meals, adult shelter access and groceries in San Francisco. Addresses, hours, phone numbers and provider sources. A lightweight community guide.">
+  <title>SF Neighbor · Free food & shelter resources</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/core.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#resources" data-i18n="skip">Skip to resources</a>
+  <header class="site-header wrap">
+    <a class="brand" href="./" aria-label="SF Neighbor home"><span class="brand-mark">__HEART__</span><span>SF Neighbor</span></a>
+    <span class="header-tagline" data-i18n="tagline">A community resource guide</span>
+    <div class="language-control js-only"><label for="language" data-i18n="language">Language</label><select id="language"><option value="en" lang="en">English</option><option value="es" lang="es">Español</option><option value="zh" lang="zh">中文</option></select></div>
+  </header>
+  <main class="wrap">
+    <section class="intro" aria-labelledby="page-title">
+      <h1 id="page-title" data-i18n="title">Find food. Find shelter.</h1>
+      <p class="intro-copy" data-i18n="intro">Free local resources in San Francisco, with the details you need before you go.</p>
+      <p class="checked-line"><span class="check-dot" aria-hidden="true"></span><span data-i18n="checked">Sources checked</span> <time id="checked-date" datetime="__CHECKED__">__DATE__</time><span class="checked-divider" aria-hidden="true">/</span><span>San Francisco, CA</span></p>
+    </section>
+    <p id="offline-notice" class="notice" role="status" hidden data-i18n="offline">You’re offline. Saved details are still here; maps and external pages need a connection.</p>
+    <p id="stale-notice" class="notice" hidden data-i18n="stale">This directory is over 30 days old. Check the provider’s current details before going.</p>
+    <section class="finder js-only" aria-label="Find resources">
+      <div class="filter-row" role="group" aria-label="Resource type">
+        <button type="button" class="filter active" data-filter="all" aria-pressed="true"><span data-i18n="all">All resources</span><span class="filter-count" data-count="all">8</span></button>
+        <button type="button" class="filter" data-filter="food" aria-pressed="false">__FOOD__<span data-i18n="food">Free meals</span><span class="filter-count" data-count="food">3</span></button>
+        <button type="button" class="filter" data-filter="shelter" aria-pressed="false">__SHELTER__<span data-i18n="shelter">Shelter</span><span class="filter-count" data-count="shelter">4</span></button>
+        <button type="button" class="filter" data-filter="groceries" aria-pressed="false">__GROCERIES__<span data-i18n="groceries">Groceries</span><span class="filter-count" data-count="groceries">1</span></button>
+      </div>
+      <div class="search-row"><div class="search-field">__SEARCH__<label for="search" class="sr-only" data-i18n="search">Search by name, street or neighborhood</label><input id="search" type="search" placeholder="Search by name, street or neighborhood" autocomplete="off" maxlength="120"></div><button id="locate" type="button" class="button button-secondary">__LOCATE__<span data-i18n="locate">Sort by my location</span></button><button id="mobile-map" type="button" class="button button-secondary mobile-only" aria-controls="map-section" aria-expanded="false">__MAP__<span data-i18n="loadMap">Load map</span></button></div>
+      <div class="location-row"><p id="location-status" role="status" data-i18n="locationHint">Optional. Your location stays in this page and is not saved.</p><button type="button" id="clear-location" class="text-button" hidden data-i18n="clearLocation">Clear location</button></div>
+    </section>
+    <noscript><p class="notice">Search and the map need JavaScript. All addresses, phone numbers, hours and source links are available below.</p></noscript>
+    <div class="directory-layout">
+      <section id="resources" class="results" aria-labelledby="results-heading" tabindex="-1">
+        <div class="results-heading"><h2 id="results-heading" data-i18n="resultsTitle">Places to start</h2><span id="result-count" role="status">8 resources</span><button type="button" id="save-list" class="text-button js-only">__DOWNLOAD__<span data-i18n="save">Save list</span></button></div>
+        <p class="results-note" data-i18n="notice">Hours may change. Call before traveling; shelter beds are not guaranteed.</p>
+        <ul id="resource-list" class="resource-list">__RESOURCES__</ul>
+        <div id="empty" class="empty" hidden><h3 data-i18n="emptyTitle">No matching resources</h3><p data-i18n="emptyText">Try a neighborhood or street, or clear your filters to see every resource.</p><button type="button" id="reset" class="button button-primary" data-i18n="reset">Clear filters</button></div>
+      </section>
+      <aside class="sidebar" aria-label="Map and help">
+        <section id="map-section" class="map-section js-only" aria-labelledby="map-title">
+          <div class="map-heading"><h2 id="map-title" data-i18n="mapTitle">See where to go</h2><button id="hide-map" class="text-button" type="button" hidden data-i18n="hideMap">Hide map</button></div>
+          <div id="map-placeholder" class="map-placeholder"><span class="map-symbol">__MAP__</span><p data-i18n="mapIntro">Load the map when you need it. The list works without it.</p><button id="load-map" type="button" class="button button-primary" data-i18n="loadMap">Load map</button></div>
+          <div id="map" aria-label="Map of resource locations" hidden></div>
+          <div id="map-status-area" hidden><p id="map-status" role="status"></p><button type="button" id="retry-map" class="text-button" hidden data-i18n="retry">Try again</button></div>
+          <p class="map-caption" id="map-hint" data-i18n="mapPrivacy">Loading the map connects to OpenStreetMap. Directions opens Google Maps.</p>
+        </section>
+        <section class="help-panel" aria-labelledby="help-title"><span class="help-icon">__SHELTER__</span><h2 id="help-title" data-i18n="helpTitle">Need a shelter bed?</h2><p data-i18n="helpText">For adult shelter access and the city waitlist, call the SF outreach team.</p><a href="tel:+16286528000" class="help-phone">__PHONE__628-652-8000</a><a class="help-link" href="https://www.sf.gov/sign-adult-shelter-san-francisco" target="_blank" rel="noopener noreferrer"><span data-i18n="cityRegistration">City shelter registration</span>__ARROW__</a><p class="help-small" data-i18n="helpMore">Families and young people have different access routes. Ask the city team for the right service.</p></section>
+        <section class="before-panel"><h2 data-i18n="beforeTitle">A few things to know</h2><p data-i18n="beforeText">All times are San Francisco local time. Listings describe published services, not live availability.</p><a href="tel:211" data-i18n="moreHelp">More food options: call 211</a><a href="tel:911" data-i18n="emergency">In an emergency, call 911.</a></section>
+      </aside>
+    </div>
+    <p id="save-status" role="status" class="save-status"></p>
+  </main>
+  <footer class="site-footer wrap"><div><span class="footer-brand">SF Neighbor</span><p data-i18n="footer">An independent community project. No account, ads or location tracking.</p><p data-i18n="footerNote">A starting point, not a complete directory. Confirm details with the service provider.</p></div><details><summary data-i18n="about">About this guide</summary><p data-i18n="translation">Names and addresses stay in English for navigation. Translated summaries are provided for convenience.</p><p data-i18n="privacy">We do not send your location to a server. If you load the map, the map provider receives normal network requests; external services have their own privacy policies.</p><p>Location data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL).</p></details></footer>
+  <script id="resource-data" type="application/json">__DATA__</script>
+</body>
+</html>

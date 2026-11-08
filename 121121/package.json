@@ -1,0 +1,5 @@
+{
+  "name":"sf-neighbor", "version":"1.0.0", "private":true,
+  "description":"A lightweight San Francisco food and shelter directory",
+  "scripts":{"build":"node tools/build.cjs","start":"node tools/serve.cjs","test":"node --test tests/core.test.cjs","test:ui":"node tests/browser.cjs"}
+}
