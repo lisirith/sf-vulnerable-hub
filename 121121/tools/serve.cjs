@@ -1,7 +1,7 @@
 'use strict';
 const http=require('node:http'),fs=require('node:fs'),path=require('node:path'),zlib=require('node:zlib');
 const root=path.resolve(__dirname,'..');
-const allowed=new Set(['index.html','css/site.css','js/core.js','js/app.js','sw.js','assets/favicon.svg','vendor/leaflet/leaflet.js','vendor/leaflet/leaflet.css','vendor/leaflet/LICENSE']);
+const allowed=new Set(['index.html','plain.html','plain-es.html','plain-zh.html','css/site.css','js/core.js','js/app.js','js/nav.js','sw.js','assets/favicon.svg','vendor/leaflet/leaflet.js','vendor/leaflet/leaflet.css','vendor/leaflet/LICENSE']);
 function createServer() {
   return http.createServer((req,res)=>{
     let pathname;

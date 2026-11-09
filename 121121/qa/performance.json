@@ -1,58 +1,36 @@
 {
-  "conditions": "Chromium, 390x844, CPU 4x slowdown; 750 kbit/s down, 150 ms latency. Single local synthetic run, not a real-device field measurement.",
-  "perf": {
-    "navigation": [
-      {
-        "domContentLoaded": 1108.5,
-        "load": 1199.9000000059605
-      }
-    ],
-    "paint": [
-      {
-        "name": "first-paint",
-        "time": 936
-      },
-      {
-        "name": "first-contentful-paint",
-        "time": 936
-      }
-    ],
-    "initialNetwork": [
-      {
-        "url": "http://127.0.0.1:58938/css/site.css",
-        "bytes": 4059
-      },
-      {
-        "url": "http://127.0.0.1:58938/js/core.js",
-        "bytes": 8034
-      },
-      {
-        "url": "http://127.0.0.1:58938/js/app.js",
-        "bytes": 3859
-      }
-    ]
+  "conditions": "Chromium, 360x640, CPU 6x slowdown; 400 kbit/s down, 300 ms latency. Single local synthetic run, not a real-device measurement.",
+  "firstLoad": {
+    "fcp": 1276,
+    "ready": 1823,
+    "bytes": 53357
   },
-  "baseline": {
-    "externalScripts": 2,
-    "renderedResourcesWithCDNFailure": 0,
-    "error": "L is not defined"
-  },
+  "openFoodBankListMs": 332,
+  "searchRoundTripMs": 533,
   "sizes": {
     "index.html": {
-      "bytes": 40356,
-      "gzip": 8788
+      "bytes": 116637,
+      "gzip": 22047
     },
     "css/site.css": {
-      "bytes": 15434,
-      "gzip": 4059
+      "bytes": 12658,
+      "gzip": 3336
     },
     "js/core.js": {
-      "bytes": 18491,
-      "gzip": 8034
+      "bytes": 57153,
+      "gzip": 21216
     },
     "js/app.js": {
-      "bytes": 11093,
-      "gzip": 3859
+      "bytes": 21994,
+      "gzip": 6758
+    },
+    "js/nav.js": {
+      "bytes": 9212,
+      "gzip": 3568
+    },
+    "vendor/leaflet/leaflet.js": {
+      "bytes": 147552,
+      "gzip": 42706
     }
   }
 }

@@ -1,184 +1,619 @@
-[
+{
+ "generated": "2026-11-09T06:35:45.028Z",
+ "entries": [
   {
-    "query": "1001 Polk Street",
-    "result": [
-      {
-        "place_id": 404687008,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
-        "osm_type": "way",
-        "osm_id": 225847531,
-        "lat": "37.7860020",
-        "lon": "-122.4198660",
-        "class": "place",
-        "type": "house",
-        "place_rank": 30,
-        "importance": 9.99999999995449E-06,
-        "addresstype": "place",
-        "name": "",
-        "display_name": "1001, Polk Street, Polk Gulch, Tenderloin, San Francisco, California, 94109, United States",
-        "boundingbox": [
-          "37.7859520",
-          "37.7860520",
-          "-122.4199160",
-          "-122.4198160"
-        ]
-      }
-    ]
+   "id": "glide",
+   "query": "330 Ellis St, San Francisco, CA 94102",
+   "lat": 37.785291,
+   "lng": -122.411697,
+   "source": "DataSF EAS",
+   "matched": "330 ELLIS ST"
   },
   {
-    "query": "525 5th Street",
-    "result": [
-      {
-        "place_id": 323200216,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
-        "osm_type": "way",
-        "osm_id": 218185111,
-        "lat": "37.7777480",
-        "lon": "-122.3998587",
-        "class": "amenity",
-        "type": "social_facility",
-        "place_rank": 30,
-        "importance": 8.251392385743523E-05,
-        "addresstype": "amenity",
-        "name": "Multi-Service Center South",
-        "display_name": "Multi-Service Center South, 525, 5th Street, South of Market, Mission Bay, Mission, San Francisco, California, 94107, United States",
-        "boundingbox": [
-          "37.7775039",
-          "37.7779623",
-          "-122.4001291",
-          "-122.3995415"
-        ]
-      }
-    ]
+   "id": "st-anthony",
+   "query": "121 Golden Gate Ave, San Francisco, CA 94102",
+   "lat": 37.781787,
+   "lng": -122.412543,
+   "source": "DataSF EAS",
+   "matched": "121 GOLDEN GATE AVE"
   },
   {
-    "query": "201 8th Street",
-    "result": [
-      {
-        "place_id": 323447116,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
-        "osm_type": "way",
-        "osm_id": 243357053,
-        "lat": "37.7762948",
-        "lon": "-122.4111736",
-        "class": "amenity",
-        "type": "social_facility",
-        "place_rank": 30,
-        "importance": 8.251392385743523E-05,
-        "addresstype": "amenity",
-        "name": "The Sanctuary",
-        "display_name": "The Sanctuary, 201, 8th Street, South of Market, Tenderloin, Mission, San Francisco, California, 94103, United States",
-        "boundingbox": [
-          "37.7760671",
-          "37.7764932",
-          "-122.4114259",
-          "-122.4109213"
-        ]
-      }
-    ]
+   "id": "mother-brown",
+   "query": "2111 Jennings St, San Francisco, CA 94124",
+   "lat": 37.726728,
+   "lng": -122.388658,
+   "source": "DataSF EAS",
+   "matched": "2111 JENNINGS ST"
   },
   {
-    "query": "330 Ellis Street",
-    "result": [
-      {
-        "place_id": 321069163,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
-        "osm_type": "way",
-        "osm_id": 260126024,
-        "lat": "37.7853266",
-        "lon": "-122.4117173",
-        "class": "building",
-        "type": "yes",
-        "place_rank": 30,
-        "importance": 8.251392385743523E-05,
-        "addresstype": "building",
-        "name": "",
-        "display_name": "330, Ellis Street, Union Square, Tenderloin, San Francisco, California, 94102, United States",
-        "boundingbox": [
-          "37.7851055",
-          "37.7854593",
-          "-122.4118036",
-          "-122.4116141"
-        ]
-      }
-    ]
+   "id": "martin-meals",
+   "query": "225 Potrero Ave, San Francisco, CA 94103",
+   "lat": 37.766611,
+   "lng": -122.407282,
+   "source": "DataSF EAS",
+   "matched": "225 POTRERO AVE"
   },
   {
-    "query": "121 Golden Gate Avenue",
-    "result": [
-      {
-        "place_id": 322851065,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
-        "osm_type": "way",
-        "osm_id": 35536670,
-        "lat": "37.7818480",
-        "lon": "-122.4125596",
-        "class": "building",
-        "type": "apartments",
-        "place_rank": 30,
-        "importance": 8.251392385743523E-05,
-        "addresstype": "building",
-        "name": "St Anthony's Vera Haile Senior Housing",
-        "display_name": "St Anthony's Vera Haile Senior Housing, 121, Golden Gate Avenue, Civic Center, San Francisco, California, 94102, United States",
-        "boundingbox": [
-          "37.7817172",
-          "37.7819721",
-          "-122.4128100",
-          "-122.4122993"
-        ]
-      }
-    ]
+   "id": "ymca-meals",
+   "query": "855 Sacramento St, San Francisco, CA 94108",
+   "lat": 37.793189,
+   "lng": -122.406886,
+   "source": "DataSF EAS",
+   "matched": "855 SACRAMENTO ST"
   },
   {
-    "query": "2111 Jennings Street",
-    "result": [
-      {
-        "place_id": 324245154,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
-        "osm_type": "way",
-        "osm_id": 289737012,
-        "lat": "37.7267300",
-        "lon": "-122.3886693",
-        "class": "building",
-        "type": "yes",
-        "place_rank": 30,
-        "importance": 8.251392385743523E-05,
-        "addresstype": "building",
-        "name": "",
-        "display_name": "2111;2135;2139, Jennings Street, Bayview District, San Francisco, California, 94124, United States",
-        "boundingbox": [
-          "37.7265569",
-          "37.7269085",
-          "-122.3888776",
-          "-122.3884609"
-        ]
-      }
-    ]
+   "id": "ymca-senior-meals",
+   "query": "855 Sacramento St, San Francisco, CA 94108",
+   "lat": 37.793189,
+   "lng": -122.406886,
+   "source": "DataSF EAS",
+   "matched": "855 SACRAMENTO ST"
   },
   {
-    "query": "1050 South Van Ness Avenue",
-    "result": [
-      {
-        "place_id": 323432567,
-        "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
-        "osm_type": "way",
-        "osm_id": 261126830,
-        "lat": "37.7564789",
-        "lon": "-122.4169612",
-        "class": "amenity",
-        "type": "place_of_worship",
-        "place_rank": 30,
-        "importance": 8.251392385743523E-05,
-        "addresstype": "amenity",
-        "name": "Iglesia de Santa Maria y Santa Marta",
-        "display_name": "Iglesia de Santa Maria y Santa Marta, 1050, South Van Ness Avenue, Mission, San Francisco, California, 94110, United States",
-        "boundingbox": [
-          "37.7564138",
-          "37.7565550",
-          "-122.4170560",
-          "-122.4168656"
-        ]
-      }
-    ]
+   "id": "refettorio-meals",
+   "query": "690 Van Ness Ave, San Francisco, CA 94102",
+   "lat": 37.781836,
+   "lng": -122.420354,
+   "source": "DataSF EAS",
+   "matched": "690 VAN NESS AVE"
+  },
+  {
+   "id": "city-apa-raymond",
+   "query": "50 Raymond Ave, San Francisco, CA 94134",
+   "lat": 37.712343,
+   "lng": -122.403988,
+   "source": "DataSF EAS",
+   "matched": "50 RAYMOND AVE"
+  },
+  {
+   "id": "city-bayanihan",
+   "query": "616 Minna St, San Francisco, CA 94103",
+   "lat": 37.778522,
+   "lng": -122.411003,
+   "source": "DataSF EAS",
+   "matched": "616 MINNA ST"
+  },
+  {
+   "id": "city-ymca",
+   "query": "855 Sacramento St, San Francisco, CA 94108",
+   "lat": 37.793189,
+   "lng": -122.406886,
+   "source": "DataSF EAS",
+   "matched": "855 SACRAMENTO ST"
+  },
+  {
+   "id": "city-curry",
+   "query": "520 Turk St, San Francisco, CA 94102",
+   "lat": 37.782466,
+   "lng": -122.417747,
+   "source": "DataSF EAS",
+   "matched": "520 TURK ST"
+  },
+  {
+   "id": "city-refettorio",
+   "query": "690 Van Ness Ave, San Francisco, CA 94102",
+   "lat": 37.781836,
+   "lng": -122.420354,
+   "source": "DataSF EAS",
+   "matched": "690 VAN NESS AVE"
+  },
+  {
+   "id": "sanctuary",
+   "query": "201 8th St, San Francisco, CA 94103",
+   "lat": 37.776117,
+   "lng": -122.41125,
+   "source": "DataSF EAS",
+   "matched": "201 08TH ST"
+  },
+  {
+   "id": "bayview-dropin",
+   "query": "2111 Jennings St, San Francisco, CA 94124",
+   "lat": 37.726728,
+   "lng": -122.388658,
+   "source": "DataSF EAS",
+   "matched": "2111 JENNINGS ST"
+  },
+  {
+   "id": "glide-walkin",
+   "query": "330 Ellis St, San Francisco, CA 94102",
+   "lat": 37.785291,
+   "lng": -122.411697,
+   "source": "DataSF EAS",
+   "matched": "330 ELLIS ST"
+  },
+  {
+   "id": "st-anthony-resource",
+   "query": "121 Golden Gate Ave, San Francisco, CA 94102",
+   "lat": 37.781787,
+   "lng": -122.412543,
+   "source": "DataSF EAS",
+   "matched": "121 GOLDEN GATE AVE"
+  },
+  {
+   "id": "st-anthony-clothing",
+   "query": "121 Golden Gate Ave, San Francisco, CA 94102",
+   "lat": 37.781787,
+   "lng": -122.412543,
+   "source": "DataSF EAS",
+   "matched": "121 GOLDEN GATE AVE"
+  },
+  {
+   "id": "martin-showers",
+   "query": "225 Potrero Ave, San Francisco, CA 94103",
+   "lat": 37.766611,
+   "lng": -122.407282,
+   "source": "DataSF EAS",
+   "matched": "225 POTRERO AVE"
+  },
+  {
+   "id": "pit-market-castro",
+   "query": [
+    "Market Street",
+    "Castro Street"
+   ],
+   "lat": 37.762671,
+   "lng": -122.435199,
+   "source": "OSM Overpass intersection",
+   "matched": null
+  },
+  {
+   "id": "pit-grove-larkin",
+   "query": [
+    "Grove Street",
+    "Larkin Street"
+   ],
+   "lat": 37.778685,
+   "lng": -122.416621,
+   "source": "OSM Overpass intersection",
+   "matched": null
+  },
+  {
+   "id": "pit-embarcadero",
+   "query": "Embarcadero Plaza, San Francisco",
+   "lat": 37.794897,
+   "lng": -122.394947,
+   "source": "OSM Nominatim",
+   "matched": "Embarcadero Plaza, Financial District, San Francisco, California, United States"
+  },
+  {
+   "id": "pit-hallidie",
+   "query": "Hallidie Plaza, San Francisco",
+   "lat": 37.78423,
+   "lng": -122.408399,
+   "source": "OSM Nominatim",
+   "matched": "Hallidie Plaza, Union Square, Tenderloin, San Francisco, California, United States"
+  },
+  {
+   "id": "pit-un-plaza",
+   "query": "United Nations Plaza, San Francisco",
+   "lat": 37.780141,
+   "lng": -122.413685,
+   "source": "OSM Nominatim",
+   "matched": "United Nations Plaza, Civic Center, San Francisco, California, 94102, United States"
+  },
+  {
+   "id": "pit-16-mission",
+   "query": [
+    "16th Street",
+    "Mission Street"
+   ],
+   "lat": 37.765061,
+   "lng": -122.419696,
+   "source": "OSM Overpass intersection",
+   "matched": null
+  },
+  {
+   "id": "pit-14th",
+   "query": "344 14th St, San Francisco, CA 94103",
+   "lat": 37.768459,
+   "lng": -122.421094,
+   "source": "DataSF EAS",
+   "matched": "344 14TH ST"
+  },
+  {
+   "id": "pit-judah",
+   "query": [
+    "Judah Street",
+    "La Playa Street"
+   ],
+   "lat": 37.760302,
+   "lng": -122.508895,
+   "source": "OSM Overpass intersection",
+   "matched": null
+  },
+  {
+   "id": "pit-draves",
+   "query": "Victoria Manalo Draves Park, San Francisco",
+   "lat": 37.776892,
+   "lng": -122.405825,
+   "source": "OSM Nominatim",
+   "matched": "Victoria Manalo Draves Park, Civic Center, Mission, San Francisco, California, 94103, United States"
+  },
+  {
+   "id": "pit-turk-hyde",
+   "query": [
+    "Turk Street",
+    "Hyde Street"
+   ],
+   "lat": 37.782593,
+   "lng": -122.415716,
+   "source": "OSM Overpass intersection",
+   "matched": null
+  },
+  {
+   "id": "pit-eddy-larkin",
+   "query": [
+    "Eddy Street",
+    "Larkin Street"
+   ],
+   "lat": 37.783315,
+   "lng": -122.417548,
+   "source": "OSM Overpass intersection",
+   "matched": null
+  },
+  {
+   "id": "maria-x",
+   "query": "555 Stevenson St, San Francisco, CA 94103",
+   "lat": 37.780816,
+   "lng": -122.41078,
+   "source": "DataSF EAS",
+   "matched": "555 STEVENSON ST"
+  },
+  {
+   "id": "tom-waddell",
+   "query": "230 Golden Gate Ave, San Francisco, CA 94102",
+   "lat": 37.781916,
+   "lng": -122.414332,
+   "source": "DataSF EAS",
+   "matched": "230 GOLDEN GATE AVE"
+  },
+  {
+   "id": "st-anthony-clinic",
+   "query": "150 Golden Gate Ave, San Francisco, CA 94102",
+   "lat": 37.782234,
+   "lng": -122.413219,
+   "source": "DataSF EAS",
+   "matched": "150 GOLDEN GATE AVE"
+  },
+  {
+   "id": "bhac",
+   "query": "1380 Howard St, San Francisco, CA 94103",
+   "lat": 37.774356,
+   "lng": -122.414241,
+   "source": "DataSF EAS",
+   "matched": "1380 HOWARD ST"
+  },
+  {
+   "id": "ap-ecs",
+   "query": "123 10th St, San Francisco, CA 94103",
+   "lat": 37.774985,
+   "lng": -122.415328,
+   "source": "DataSF EAS",
+   "matched": "123 10TH ST"
+  },
+  {
+   "id": "ap-swords",
+   "query": "1060 Howard St, San Francisco, CA 94103",
+   "lat": 37.778818,
+   "lng": -122.408746,
+   "source": "DataSF EAS",
+   "matched": "1060 HOWARD ST"
+  },
+  {
+   "id": "ap-bayview",
+   "query": "1641 La Salle Ave, San Francisco, CA 94124",
+   "lat": 37.736897,
+   "lng": -122.389661,
+   "source": "DataSF EAS",
+   "matched": "1641 LA SALLE AVE"
+  },
+  {
+   "id": "ap-larkin",
+   "query": "134 Golden Gate Ave, San Francisco, CA 94102",
+   "lat": 37.782263,
+   "lng": -122.412985,
+   "source": "DataSF EAS",
+   "matched": "134 GOLDEN GATE AVE"
+  },
+  {
+   "id": "btw-meals",
+   "query": "800 Presidio Ave, San Francisco, CA 94115",
+   "lat": 37.784336,
+   "lng": -122.446059,
+   "source": "DataSF EAS",
+   "matched": "800 PRESIDIO AVE"
+  },
+  {
+   "id": "city-apa-grant",
+   "query": "518 Grant Ave, San Francisco, CA 94108",
+   "lat": 37.791767,
+   "lng": -122.405632,
+   "source": "DataSF EAS",
+   "matched": "518 GRANT AVE"
+  },
+  {
+   "id": "city-apa-sunnydale",
+   "query": "1099 Sunnydale Ave, San Francisco, CA 94134",
+   "lat": 37.710676,
+   "lng": -122.412206,
+   "source": "DataSF EAS",
+   "matched": "1099 SUNNYDALE AVE"
+  },
+  {
+   "id": "city-btw",
+   "query": "800 Presidio Ave, San Francisco, CA 94115",
+   "lat": 37.784336,
+   "lng": -122.446059,
+   "source": "DataSF EAS",
+   "matched": "800 PRESIDIO AVE"
+  },
+  {
+   "id": "city-district10",
+   "query": "5030 3rd St, San Francisco, CA 94124",
+   "lat": 37.732935,
+   "lng": -122.391769,
+   "source": "DataSF EAS",
+   "matched": "5030 03RD ST"
+  },
+  {
+   "id": "city-colibri",
+   "query": "5630 Mission St, San Francisco, CA 94112",
+   "lat": 37.711174,
+   "lng": -122.447208,
+   "source": "DataSF EAS",
+   "matched": "5630 MISSION ST"
+  },
+  {
+   "id": "city-little-market",
+   "query": "1050 South Van Ness Ave, San Francisco, CA 94110",
+   "lat": 37.75646,
+   "lng": -122.41703,
+   "source": "DataSF EAS",
+   "matched": "1050 SOUTH VAN NESS AVE"
+  },
+  {
+   "id": "city-selfhelp-excelsior",
+   "query": "5050 Mission St, San Francisco, CA 94112",
+   "lat": 37.71767,
+   "lng": -122.4403,
+   "source": "DataSF EAS",
+   "matched": "5050 MISSION ST"
+  },
+  {
+   "id": "city-selfhelp-sunset",
+   "query": "3133 Taraval St, San Francisco, CA 94116",
+   "lat": 37.741738,
+   "lng": -122.499867,
+   "source": "DataSF EAS",
+   "matched": "3133 TARAVAL ST"
+  },
+  {
+   "id": "city-richmond",
+   "query": "741 30th Ave, San Francisco, CA 94121",
+   "lat": 37.775118,
+   "lng": -122.489886,
+   "source": "DataSF EAS",
+   "matched": "741 30TH AVE"
+  },
+  {
+   "id": "dolores",
+   "query": "1050 South Van Ness Ave, San Francisco, CA 94110",
+   "lat": 37.75646,
+   "lng": -122.41703,
+   "source": "DataSF EAS",
+   "matched": "1050 SOUTH VAN NESS AVE"
+  },
+  {
+   "id": "winter-1",
+   "query": "705 Natoma St, San Francisco, CA 94103",
+   "lat": 37.776325,
+   "lng": -122.412309,
+   "source": "DataSF EAS",
+   "matched": "705 NATOMA ST"
+  },
+  {
+   "id": "winter-2",
+   "query": "1111 Gough St, San Francisco, CA 94109",
+   "lat": 37.784457,
+   "lng": -122.425412,
+   "source": "DataSF EAS",
+   "matched": "1111 GOUGH ST"
+  },
+  {
+   "id": "winter-3",
+   "query": "1111 O'Farrell St, San Francisco, CA 94109",
+   "lat": 37.784249,
+   "lng": -122.423287,
+   "source": "DataSF EAS",
+   "matched": "1111 OFARRELL ST"
+  },
+  {
+   "id": "winter-4",
+   "query": "1187 Franklin St, San Francisco, CA 94109",
+   "lat": 37.785047,
+   "lng": -122.423414,
+   "source": "DataSF EAS",
+   "matched": "1187 FRANKLIN ST"
+  },
+  {
+   "id": "winter-5",
+   "query": "65 9th St, San Francisco, CA 94103",
+   "lat": 37.77677,
+   "lng": -122.414948,
+   "source": "DataSF EAS",
+   "matched": "65 09TH ST"
+  },
+  {
+   "id": "next-door",
+   "query": "1001 Polk St, San Francisco, CA 94109",
+   "lat": 37.78616,
+   "lng": -122.419941,
+   "source": "DataSF EAS",
+   "matched": "1001 POLK ST"
+  },
+  {
+   "id": "msc-south",
+   "query": "525 5th St, San Francisco, CA 94107",
+   "lat": 37.777612,
+   "lng": -122.399845,
+   "source": "DataSF EAS",
+   "matched": "525 05TH ST"
+  },
+  {
+   "id": "raphael-house",
+   "query": "1065 Sutter St, San Francisco, CA 94109",
+   "lat": 37.787763,
+   "lng": -122.417695,
+   "source": "DataSF EAS",
+   "matched": "1065 SUTTER ST"
+  },
+  {
+   "id": "hygiene-hub",
+   "query": "150 Golden Gate Ave, San Francisco, CA 94102",
+   "lat": 37.782234,
+   "lng": -122.413219,
+   "source": "DataSF EAS",
+   "matched": "150 GOLDEN GATE AVE"
+  },
+  {
+   "id": "mnrc",
+   "query": "165 Capp St, San Francisco, CA 94110",
+   "lat": 37.764049,
+   "lng": -122.418478,
+   "source": "DataSF EAS",
+   "matched": "165 CAPP ST"
+  },
+  {
+   "id": "awp-dropin",
+   "query": "211 13th St, San Francisco, CA 94103",
+   "lat": 37.769847,
+   "lng": -122.41939,
+   "source": "DataSF EAS",
+   "matched": "211 13TH ST"
+  },
+  {
+   "id": "st-anthony-tech",
+   "query": "150 Golden Gate Ave, San Francisco, CA 94102",
+   "lat": 37.782234,
+   "lng": -122.413219,
+   "source": "DataSF EAS",
+   "matched": "150 GOLDEN GATE AVE"
+  },
+  {
+   "id": "pit-24-mission",
+   "query": [
+    "24th Street",
+    "Mission Street"
+   ],
+   "lat": 37.752243,
+   "lng": -122.418463,
+   "source": "OSM Overpass intersection",
+   "matched": null
+  },
+  {
+   "id": "pit-franklin-sq",
+   "query": "300 Hampshire St, San Francisco, CA 94110",
+   "lat": 37.765247,
+   "lng": -122.408603,
+   "source": "OSM Nominatim",
+   "matched": "300, Hampshire Street, Potrero Hill, Mission, San Francisco, California, 94110, United States"
+  },
+  {
+   "id": "pit-myrtle-larkin",
+   "query": [
+    "Myrtle Street",
+    "Larkin Street"
+   ],
+   "lat": 37.785647,
+   "lng": -122.418018,
+   "source": "OSM Overpass intersection",
+   "matched": null
+  },
+  {
+   "id": "pit-eddy-jones",
+   "query": [
+    "Eddy Street",
+    "Jones Street"
+   ],
+   "lat": 37.783943,
+   "lng": -122.412615,
+   "source": "OSM Overpass intersection",
+   "matched": null
+  },
+  {
+   "id": "sobering-center",
+   "query": "1185 Mission St, San Francisco, CA 94103",
+   "lat": 37.777576,
+   "lng": -122.412603,
+   "source": "DataSF EAS",
+   "matched": "1185 MISSION ST"
+  },
+  {
+   "id": "ap-mission-action",
+   "query": "2645 Mission St, San Francisco, CA 94110",
+   "lat": 37.754801,
+   "lng": -122.41833,
+   "source": "DataSF EAS",
+   "matched": "2645 MISSION ST"
+  },
+  {
+   "id": "ap-central-city",
+   "query": "37 Grove St, San Francisco, CA 94102",
+   "lat": 37.778609,
+   "lng": -122.415956,
+   "source": "DataSF EAS",
+   "matched": "37 GROVE ST"
+  },
+  {
+   "id": "ap-mission-family",
+   "query": "2871 Mission St, San Francisco, CA 94110",
+   "lat": 37.751111,
+   "lng": -122.41799,
+   "source": "DataSF EAS",
+   "matched": "2871 MISSION ST"
+  },
+  {
+   "id": "ap-lyric",
+   "query": "127 Collingwood St, San Francisco, CA 94114",
+   "lat": 37.760375,
+   "lng": -122.435752,
+   "source": "DataSF EAS",
+   "matched": "127 COLLINGWOOD ST"
+  },
+  {
+   "id": "ap-lgbt-center",
+   "query": "1800 Market St, San Francisco, CA 94102",
+   "lat": 37.771741,
+   "lng": -122.423908,
+   "source": "DataSF EAS",
+   "matched": "1800 MARKET ST"
+  },
+  {
+   "id": "ap-3rd-street",
+   "query": "5688 3rd St, San Francisco, CA 94124",
+   "lat": 37.72659,
+   "lng": -122.394008,
+   "source": "DataSF EAS",
+   "matched": "5688 03RD ST"
+  },
+  {
+   "id": "ap-safehouse",
+   "query": "1089 Mission St, San Francisco, CA 94103",
+   "lat": 37.779308,
+   "lng": -122.410404,
+   "source": "DataSF EAS",
+   "matched": "1089 MISSION ST"
+  },
+  {
+   "id": "ap-riley",
+   "query": "1175 Howard St, San Francisco, CA 94103",
+   "lat": 37.77659,
+   "lng": -122.410693,
+   "source": "DataSF EAS",
+   "matched": "1175 HOWARD ST"
   }
-]
+ ],
+ "problems": [
+  "pit-franklin-sq: not in city address database; used OpenStreetMap for 300 Hampshire St, San Francisco, CA 94110"
+ ]
+}

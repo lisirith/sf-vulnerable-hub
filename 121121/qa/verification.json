@@ -1,0 +1,27 @@
+{
+ "checked": "2026-11-09T06:45:55.859Z",
+ "summary": {
+  "OK": 88,
+  "UNVERIFIED": 1
+ },
+ "compared": {
+  "phones": 57,
+  "addresses": 60,
+  "locations": 13
+ },
+ "rows": [
+  {
+   "id": "city-bayanihan",
+   "name": "Bayanihan Equity Center",
+   "result": "UNVERIFIED",
+   "detail": "phone 4152552347 not on page — checked https://www.sfhsa.org/services/food/free-food-locations; could not read https://www.sfbos.org/sites/default/files/25.05.28%20Bayanihan%20Equity%20Center.pdf (PDF, needs a person to read)",
+   "partial": "https://www.sfbos.org/sites/default/files/25.05.28%20Bayanihan%20Equity%20Center.pdf (PDF, needs a person to read)"
+  },
+  {
+   "id": "msc-south",
+   "name": "MSC-South Shelter",
+   "result": "OK",
+   "partial": "https://svdp-sf.org/contact-us/ (fetch failed)"
+  }
+ ]
+}

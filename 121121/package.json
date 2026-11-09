@@ -1,5 +1,5 @@
 {
-  "name":"sf-neighbor", "version":"1.0.0", "private":true,
-  "description":"A lightweight San Francisco food and shelter directory",
-  "scripts":{"build":"node tools/build.cjs","start":"node tools/serve.cjs","test":"node --test tests/core.test.cjs","test:ui":"node tests/browser.cjs"}
+  "name":"sf-neighbor", "version":"2.0.0", "private":true,
+  "description":"A lightweight San Francisco directory of free food, shelter and other help, with a free map and walking directions",
+  "scripts":{"build":"node tools/build.cjs","start":"node tools/serve.cjs","refresh":"node tools/refresh-foodbank.cjs && node tools/build.cjs","verify":"node tools/verify-sources.cjs","geocode":"node tools/geocode.cjs","package":"node tools/package.cjs","test":"node --test tests/core.test.cjs","test:ui":"node tests/browser.cjs","test:live":"node tests/live-map.cjs"}
 }

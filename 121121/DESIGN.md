@@ -1,9 +1,11 @@
 # SF Neighbor
 
-Surface mode: Operate. The visitor needs an address, time, access requirement and a way to call or get directions, often outdoors on a slow phone.
+Surface mode: Operate. The visitor needs an address, a time, the rules, a phone number and a way to walk there, often outdoors on a slow phone with limited data.
 
-Use a warm paper surface (#f7f4ee), dark brown primary action (#634633), dark readable text (#302b26) and muted brown text (#665e55). Green indicates meal access; amber identifies intake/waitlist requirements. Neither color indicates real-time availability.
+Use a warm paper surface (#f7f4ee), dark brown primary action (#5a3e2c), green for calling (#245a3c) and dark readable text (#231e19). Status colors describe published rules, never real-time availability.
 
-Keep system fonts, no remote fonts or decorative images. One-column resource rows on phones, a supporting map and help column on desktop. No entrance animation. Main controls have at least 44px targets. Map is optional and explicitly loaded. All core information must remain available without the map or JavaScript.
+Keep system fonts and no images. One column on phones; list and map side by side from 900px. No animation. Controls are at least 44px tall. Never rely on the map: name, address, hours, phone and Google Maps link must work without it, and the text-only pages must work without JavaScript.
 
-The HTML is generated with real resource content. Dates represent source review, not real-time verification. Never label a shelter as having available beds without an actual authoritative live feed. Keep coordinates approximate and use the full address for walking directions. Preserve names and street addresses in English in translated views.
+The map library, tiles and routing load only when asked for. Use canvas markers, no zoom animation, and no tile caching. Stop GPS when the page is hidden.
+
+Dates show when a source was reviewed. Never label a shelter as having beds without an authoritative live feed. Never publish a confidential shelter address or pin. Preserve names and street addresses in English in translated views so people can match street signs.
