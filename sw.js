@@ -1,5 +1,5 @@
 /* Only caches this site's own files. Map tiles and third-party data are never stored here. */
-const CACHE='sf-neighbor-6eb945600984';
+const CACHE='sf-neighbor-48d56001f8c3';
 const ASSETS=["./","./css/site.css","./js/core.js","./js/app.js","./assets/favicon.svg"];
 const LAZY=["./js/nav.js","./vendor/leaflet/leaflet.js","./vendor/leaflet/leaflet.css"];
 const scoped=p=>new URL(p,self.registration.scope).href;

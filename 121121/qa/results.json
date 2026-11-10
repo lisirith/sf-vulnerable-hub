@@ -1,5 +1,5 @@
 {
-  "checked": "2026-11-09",
+  "checked": "2026-11-10",
   "checks": [
     "Home loads with no third-party requests and no map library",
     "Food Bank lists every saved site, emergency first, 25 at a time",
